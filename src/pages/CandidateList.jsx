@@ -21,7 +21,6 @@ export default function CandidateList() {
             <Table celled>
                 <Table.Header>
                     <Table.Row>
-                        <Table.HeaderCell>Id</Table.HeaderCell>
                         <Table.HeaderCell>Email</Table.HeaderCell>
                         <Table.HeaderCell>Şifre</Table.HeaderCell>
                         <Table.HeaderCell>İsim</Table.HeaderCell>
@@ -37,7 +36,6 @@ export default function CandidateList() {
                     {
                         candidates.map(candidate => (
                             <Table.Row>
-                                <Table.Cell>{candidate.id}</Table.Cell>
                                 <Table.Cell>{candidate.email}</Table.Cell>
                                 <Table.Cell>{candidate.password}</Table.Cell>
                                 <Table.Cell>{candidate.firstName}</Table.Cell>

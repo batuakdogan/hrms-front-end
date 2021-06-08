@@ -1,46 +1,45 @@
-import React from 'react'
-import { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react'
 import { Icon, Menu, Table } from "semantic-ui-react";
-import EmployerService from '../services/employerService';
-
-export default function EmployerList() {
-
+import CityService from '../services/cityService';
+export default function CityList() {
 
 
-    const [employers, setEmployers] = useState([]);
 
+
+    const [cities, setCities] = useState([])
     useEffect(() => {
-      let employerService = new EmployerService();
-      employerService
-        .getEmployers()
-        .then((result) => setEmployers(result.data.data));
-    }, []);
+        let cityService = new CityService();
+        cityService.getCities().then(result => setCities(result.data.data))
+
+
+    }, [])
+
+
+
+
+
 
     return (
-        <div>
-        <font face="MS SANS" color="red" size="5">İş Verenler</font>
+        <div><font face="MS SANS" color="red" size="5">Şehirler</font>
+
 
             <Table celled>
                 <Table.Header>
                     <Table.Row>
-                        <Table.HeaderCell>Şirket İsmi</Table.HeaderCell>
-                        <Table.HeaderCell>Web Adresi</Table.HeaderCell>
-                        <Table.HeaderCell>Telefon Numarası</Table.HeaderCell>
+                        <Table.HeaderCell>Şehirler</Table.HeaderCell>
 
                     </Table.Row>
                 </Table.Header>
 
                 <Table.Body>
-                    {
-                        employers.map((employer) => (
+                    {cities.map((city) => (
 
-                            <Table.Row>
-                                <Table.Cell>{employer.companyName}</Table.Cell>
-                                <Table.Cell>{employer.webAdress}</Table.Cell>
-                                <Table.Cell>{employer.phoneNumber}</Table.Cell>
-                            </Table.Row>
-                        ))
-                    }
+                        <Table.Row>
+                            <Table.Cell>{city.cityName}</Table.Cell>
+                        </Table.Row>
+                    ))}
+
+
 
                 </Table.Body>
 

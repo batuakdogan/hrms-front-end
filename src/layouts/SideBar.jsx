@@ -9,21 +9,21 @@ export default function SideBar() {
           name="user"
         >
           <Icon name="user" />
-          Job Positions
+          İşler
         </Menu.Item>
 
         <Menu.Item
           name="user"
         >
           <Icon name="user" />
-          Candidates
+          İş Arayanlar
         </Menu.Item>
 
         <Menu.Item
           name="user"
         >
           <Icon name="user" />
-          Employers
+          Yetkililer
         </Menu.Item>
       </Menu>
     </div>

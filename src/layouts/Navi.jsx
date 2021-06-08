@@ -16,16 +16,16 @@ export default function Navi() {
                     />
 
                     <Menu.Menu position='right'>
-                        <Dropdown item text='Targets'>
+                        <Dropdown item text='Hedef'>
                             <Dropdown.Menu>
-                                <Dropdown.Item>Employers</Dropdown.Item>
-                                <Dropdown.Item>Candidates</Dropdown.Item>
+                                <Dropdown.Item>İş Veren</Dropdown.Item>
+                                <Dropdown.Item>İş Arayan</Dropdown.Item>
                             </Dropdown.Menu>
                         </Dropdown>
 
                         <Menu.Item>
-                            <Button primary>Sign Up</Button>
-                            <Button primary>Sign In</Button>
+                            <Button color="red" primary>Kayıt Ol</Button>
+                            <Button primary>Giriş Yap</Button>
 
                         </Menu.Item>
                     </Menu.Menu>
