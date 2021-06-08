@@ -16,6 +16,8 @@ export default function CandidateList() {
 
     return (
         <div>
+                        <font face="COW BOYS" color="red" size="5">İş Arayanlar</font>
+
             <Table celled>
                 <Table.Header>
                     <Table.Row>
