@@ -4,6 +4,7 @@ import CandidateList from '../pages/CandidateList'
 import EmployerList from '../pages/EmployerList';
 import JobTitleList from '../pages/JobTitleList';
 import CityList from '../pages/CityList';
+import JobAdvertList from '../pages/JobAdvertList';
 export default function Section() {
     return (
         <div>
@@ -38,6 +39,13 @@ export default function Section() {
 
                 </Grid.Row>
 
+
+<Grid.Row>
+
+    <Grid.Column>
+    <JobAdvertList/>
+        </Grid.Column>
+</Grid.Row>
 
             </Grid>
         </div>
