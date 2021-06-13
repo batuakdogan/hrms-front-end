@@ -5,6 +5,10 @@ import EmployerList from '../pages/EmployerList';
 import JobTitleList from '../pages/JobTitleList';
 import CityList from '../pages/CityList';
 import JobAdvertList from '../pages/JobAdvertList';
+import { Button } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
+import AddJobTitle from '../pages/AddJobTitle'
+import AddJobAdvertisementPage from '../pages/AddJobAdvertisementPage'
 export default function Section() {
     return (
         <div>
@@ -20,10 +24,18 @@ export default function Section() {
                         <JobTitleList />
                     </Grid.Column>
                 </Grid.Row>
+
+                <Link to="/jobtitleadd">
+     <Button>
+        <p>Ekle</p>
+     </Button>
+   </Link>
+
                 <Grid.Row>
                     <Grid.Column>
 
                         <EmployerList />
+                       
 
                     </Grid.Column>
 
@@ -40,14 +52,15 @@ export default function Section() {
                 </Grid.Row>
 
 
-<Grid.Row>
+                <Grid.Row>
 
-    <Grid.Column>
-    <JobAdvertList/>
-        </Grid.Column>
-</Grid.Row>
-
+                    <Grid.Column>
+                        <JobAdvertList />
+                        
+                    </Grid.Column>
+                </Grid.Row>
             </Grid>
+            <AddJobAdvertisementPage/>
         </div>
     )
 }

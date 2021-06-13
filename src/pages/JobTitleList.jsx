@@ -2,6 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import { Icon, Label, Menu, Table } from 'semantic-ui-react'
 import JobTitleService from '../services/jobTitleService'
+
 export default function JobTitleList() {
 
 
@@ -38,12 +39,12 @@ export default function JobTitleList() {
 
                         ))
                     }
-
+                    
                 </Table.Body>
 
 
 
-                
+
             </Table>
         </div>
     )
