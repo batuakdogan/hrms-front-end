@@ -115,9 +115,8 @@ function CreateJobAdvertisementPage() {
               }) => (
                 <form onSubmit={handleSubmit}>
                   <div>
-                    <div className="d-flex justify-content-between">
+                    <div>
                       <button
-                        style={{ marginRight: 10 }}
                       >
                         İptal Et
                       </button>
@@ -157,11 +156,10 @@ function CreateJobAdvertisementPage() {
                           ""
                         )}
                       </div>
-                      <div className="f-1  d-flex flex-column">
+                      <div>
                         <strong>Pozisyon</strong>
                         <div>
                           <select
-                            className="rounded"
                             name="jobtitleId"
                             value={values.jobtitleId}
                             onChange={handleChange}
@@ -178,7 +176,7 @@ function CreateJobAdvertisementPage() {
                               </option>
                             ))}
                           </select>
-                          <span className="custom-arrow" />
+                          <span/>
                         </div>
                         {errors.jobtitleId && touched.jobtitleId ? (
                           <div className="input-feedback">
@@ -190,8 +188,8 @@ function CreateJobAdvertisementPage() {
                       </div>
                     </div>
 
-                    <div className="d-flex justify-content-between">
-                      <div className="f-1 d-flex flex-column">
+                    <div>
+                      <div>
                         <strong>
                           Minimum Maaş
                         </strong>
@@ -206,21 +204,20 @@ function CreateJobAdvertisementPage() {
                           />
                         </div>
                         {errors.minSalary && touched.minSalary ? (
-                          <div className="input-feedback">
+                          <div>
                             {errors.minSalary}
                           </div>
                         ) : (
                           ""
                         )}
                       </div>
-                      <div className="f-1  d-flex flex-column">
+                      <div>
                         <strong>
                           Maksimum Maaş
                         </strong>
                         <div>
                           <input
                             type="text"
-                            className="rounded"
                             name="maxSalary"
                             onChange={handleChange}
                             onBlur={handleBlur}
@@ -242,7 +239,6 @@ function CreateJobAdvertisementPage() {
                         <strong>İş Türü</strong>
                         <div>
                           <select
-                            className="rounded"
                             name="workHourId"
                             value={values.workHourId}
                             onChange={handleChange}
@@ -269,7 +265,6 @@ function CreateJobAdvertisementPage() {
                         <div>
                           <select
                           
-                            className="rounded"
                             name="workTypeId"
                             value={values.workTypeId}
                             onChange={handleChange}
@@ -286,7 +281,7 @@ function CreateJobAdvertisementPage() {
                               </option>
                             ))}
                           </select>
-                          <span className="custom-arrow" />
+                          <span/>
                         </div>
                       </div>
                     </div>
@@ -304,7 +299,6 @@ function CreateJobAdvertisementPage() {
                          onBlur={handleBlur}
                          values={values.appealExpirationDate}
 
-                          class="form-control"
                           type="datetime-local"
                           id="appealExpirationDate"
                         />
@@ -329,7 +323,6 @@ function CreateJobAdvertisementPage() {
                           onBlur={handleBlur}
                           values={values.quota[0] || ""}
                           type="text"
-                          className="rounded"
                         />
                       </div>
                       {errors.quota && touched.quota ? (
