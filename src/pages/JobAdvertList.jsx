@@ -26,7 +26,7 @@ export default function JobAdvertList() {
                         <Table.HeaderCell>İş İlan Tarihi</Table.HeaderCell>
                         <Table.HeaderCell>Bitiş Tarihi</Table.HeaderCell>
                         <Table.HeaderCell>Min. Maaş</Table.HeaderCell>
-                        <Table.HeaderCell>Max. Maaş</Table.HeaderCell>
+                        <Table.HeaderCell>Max. Maaş</Table.HeaderCell>  
 
                     </Table.Row>
                 </Table.Header>

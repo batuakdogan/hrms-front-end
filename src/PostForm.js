@@ -53,7 +53,7 @@ class PostForm extends Component {
                     </div>
 
                     <div>
-                        <input
+                        <input 
                             type="text"
                             name="quota"
                             value={quota}

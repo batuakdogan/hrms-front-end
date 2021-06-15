@@ -3,8 +3,7 @@ import React from "react";
 
 
 
-import { Form, Input, TextArea, Button, Select} from 'semantic-ui-react'
-import { Link } from 'react-router-dom';
+import { Form, Input, TextArea, Button, Select } from 'semantic-ui-react'
 
 import CityService from "../services/cityService";
 import JobTitleService from "../services/jobTitleService";
@@ -21,7 +20,7 @@ function AddJobAdvertisementPage() {
   const [cities, setCities] = React.useState([]);
   const [titles, setTitles] = React.useState([]);
   const [hours, setWorkHours] = React.useState([]); 
-  const [types, setWorkTypes] = React.useState([]); 
+  const [types, setWorkTypes] = React.useState([]);
 
   React.useEffect(() => {
     let cityService = new CityService();
@@ -45,6 +44,7 @@ function AddJobAdvertisementPage() {
 
 
   }, []);
+
   const history = useHistory();
 
   const jobAdvertService = new JobAdvertService();
@@ -359,9 +359,6 @@ function AddJobAdvertisementPage() {
                     <div>
                     <div>
 
-
-
-<Link to ="/">
                       <button class="ui button"
                       >
                         İptal Et
@@ -372,7 +369,6 @@ function AddJobAdvertisementPage() {
                       >
                         Oluştur
                       </button>
-                      </Link>
                     </div>
                   </div>
                   </Form>

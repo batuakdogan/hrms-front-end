@@ -19,8 +19,8 @@ export default function Dashboard() {
           <Grid.Column width={14}>
             
          <Route exact path ="/" component = {Section}/>
-         <Route exact path="/jobadvertadd" compnent = {AddJobAdvertisementPage}/>
-         <Route exact path ="/jobtitleadd" component ={AddJobTitle} />
+         <Route exact path ="/jobtitleadd" component ={AddJobTitle} /> 
+         <Route path ="/jobadvertisadd" component={AddJobAdvertisementPage}/>
 
 
 
