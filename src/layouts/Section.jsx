@@ -6,6 +6,7 @@ import JobTitleList from '../pages/JobTitleList';
 import CityList from '../pages/CityList';
 import JobAdvertList from '../pages/JobAdvertList';
 import { Link } from 'react-router-dom';
+import JobAdDetail from '../pages/JobAdDetail';
 import AddJobTitle from '../pages/AddJobTitle'
 import AddJobAdvertisementPage from '../pages/AddJobAdvertisementPage'
 import {Input, TextArea, Button, Select } from 'semantic-ui-react'
@@ -15,7 +16,7 @@ export default function Section() {
             <Grid>
                 <Grid.Row>
                     <Grid.Column size={14}>
-                        <CandidateList />  
+                        <CandidateList />
                     </Grid.Column>
                 </Grid.Row>
 
@@ -69,6 +70,9 @@ export default function Section() {
                         <p>Ekle</p>
                     </Button>
                 </Link>
+
+
+                <JobAdDetail/>
 
 
   

@@ -1,40 +1,36 @@
-import React from "react";
-import { Grid } from "semantic-ui-react";
-import Section from "./Section";
-import SideBar from "./SideBar";
-import { Route } from "react-router";
-import CityList from "../pages/CityList";
-import JobAdvertList from "../pages/JobAdvertList";
-import JobTitleList from "../pages/JobTitleList";
-import AddJobTitle from "../pages/AddJobTitle";
-import AddJobAdvertisementPage from "../pages/AddJobAdvertisementPage"
+import React from 'react'
+import Categories from './Categories'
+import Navi from './Navi'
+import { Container, Grid } from 'semantic-ui-react';
+import JobAdvertList from '../pages/JobAdvertList'
+import CandidateList from '../pages/CandidateList';
+import EmployerList from '../pages/EmployerList';
+import { Route } from 'react-router';
+import JobAdDetail from '../pages/JobAdDetail';
+import EmployerDetail from '../pages/EmployerDetail';
+import AddJobAdvertisementPage from '../pages/AddJobAdvertisementPage';
+
 export default function Dashboard() {
-  return (
-    <div>
-      <Grid>
-        <Grid.Row>
-          <Grid.Column width={2}>
-            <SideBar />
-          </Grid.Column>
-          <Grid.Column width={14}>
-            
-         <Route exact path ="/" component = {Section}/>
-         <Route exact path ="/jobtitleadd" component ={AddJobTitle} /> 
-         <Route path ="/jobadvertisadd" component={AddJobAdvertisementPage}/>
+    return (
+        <div>
+            <Navi />
+            <Container className="main">                
+                <Grid stackable>
+                    <Grid.Column width={4}>
+                        <Categories />
+                    </Grid.Column>
+                    <Grid.Column width={12}>
+                        <Route exact path="/" component={JobAdvertList}/>
+                        <Route exact path="/candidates" component={CandidateList}/>
+                        <Route exact path="/employers" component={EmployerList}/>
+                        <Route exact path="/employers/:name" component={EmployerDetail}/>
 
-
-
-        
-
-
-
-           
-
-
-              
-          </Grid.Column> 
-        </Grid.Row>
-      </Grid>
-    </div>
-  );
+                        <Route exact path="/jobads" component={JobAdvertList}/>
+                        <Route exact path="/jobAdCreate" component={AddJobAdvertisementPage}/>
+                        <Route exact path="/jobads/:id" component={JobAdDetail}/>
+                    </Grid.Column>
+                </Grid>
+            </Container>
+        </div>
+    )
 }

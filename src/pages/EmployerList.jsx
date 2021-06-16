@@ -1,51 +1,47 @@
-import React from 'react'
-import { useState,useEffect } from 'react';
-import { Icon, Menu, Table } from "semantic-ui-react";
-import EmployerService from '../services/employerService';
-
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { Button, Card,Icon } from "semantic-ui-react";
+import EmployerService from '../services/employerService'
 export default function EmployerList() {
+  const [employers, setEmployers] = useState([]);
 
+  useEffect(() => {
+    let employerService = new EmployerService();
+    employerService
+      .getEmployers()
+      .then((result) => setEmployers(result.data.data));
+  }, []);
 
+  return (
+    <div>
+      <Card.Group>
+        {employers.map((employer) => (
+          <Card fluid key={employer.id}>
+            <Card.Content>
+              <Card.Header>{employer.companyName}</Card.Header>
+              <Card.Meta>{employer.webAddress}</Card.Meta>
+              <Card.Description>
+                <p><b> <Icon name="mail" />
+                  E-Posta: </b>{employer.email}</p>
+                <p><b>  
+                <Icon name="phone" />
+Telefon: </b>{employer.phoneNumber}</p>
+              </Card.Description>
+            </Card.Content>
+            <Card.Content extra>
+              <div className="ui two buttons">
+                <Button basic color="green" as={Link} to={`/employers/${employer.id}`}>
+                  Detaylar
+                </Button>
 
-    const [employers, setEmployers] = useState([]);
-
-    useEffect(() => {
-      let employerService = new EmployerService();
-      employerService
-        .getEmployers()
-        .then((result) => setEmployers(result.data.data));
-    }, []);
-
-    return (
-        <div>
-        <font face="MS SANS" color="red" size="5">İş Verenler</font>
-
-            <Table celled>
-                <Table.Header>
-                    <Table.Row>
-                        <Table.HeaderCell>Şirket İsmi</Table.HeaderCell>
-                        <Table.HeaderCell>Web Adresi</Table.HeaderCell>
-                        <Table.HeaderCell>Telefon Numarası</Table.HeaderCell>
-
-                    </Table.Row>
-                </Table.Header>
-
-                <Table.Body>
-                    {
-                        employers.map((employer) => (
-
-                            <Table.Row>
-                                <Table.Cell>{employer.companyName}</Table.Cell>
-                                <Table.Cell>{employer.webAdress}</Table.Cell>
-                                <Table.Cell>{employer.phoneNumber}</Table.Cell>
-                            </Table.Row>
-                        ))
-                    }
-
-                </Table.Body>
-
-                
-            </Table>
-        </div>
-    )
+                <Button basic color="blue">
+                  <a href={"https://" + employer.webAddress} target={"_blank"} rel="noopener noreferrer">Web Sitesi</a>
+                </Button>
+              </div>
+            </Card.Content>
+          </Card>
+        ))}
+      </Card.Group>
+    </div>
+  );
 }

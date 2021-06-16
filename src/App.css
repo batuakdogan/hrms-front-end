@@ -1,1 +1,22 @@
-css kodları gizlenmiştir
+
+.ui.main.container{
+    margin-top:3em;
+  }
+   
+  .ui.sidebar{
+    margin-left: 4em;
+   }
+  
+  
+   p.b {
+    margin-left: 400px;
+    margin-bottom: 100px;
+    margin-top: 20px; 
+  }
+  
+  .c{
+    margin-left: 400px;
+  
+  }
+   
+  

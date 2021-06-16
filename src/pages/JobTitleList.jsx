@@ -37,11 +37,11 @@ export default function JobTitleList() {
                                 <Table.Cell>{jobTitle.title}</Table.Cell>
                             </Table.Row>
 
-                        ))
+                        ))    
                     }
                     
-                </Table.Body>
-   
+                </Table.Body> 
+
 
 
 

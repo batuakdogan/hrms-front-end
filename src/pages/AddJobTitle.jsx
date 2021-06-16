@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import { Form, Input, TextArea, Button, Select } from 'semantic-ui-react'
+
 class PostForm extends Component {
 	constructor(props) {
 		super(props)
@@ -27,27 +29,76 @@ class PostForm extends Component {
 	}
 
 	render() {
-		const {title} = this.state
+		const { title } = this.state
 		return (
 			<div>
-				<form onSubmit={this.submitHandler}>
+				{/* <form onSubmit={this.submitHandler}>
 					
-					<div>
-				<font color="red" size="4">Lütfen İş Ekleyin</font><br/> <br/>
-						<input
+				 	<div>
+				 <font color="red" size="4">Lütfen İş Ekleyin</font><br/> <br/>
+				 		<input
 						
-							type="text"
-							name="title"
-							value={title}
-							onChange={this.changeHandler}
-						/>
-					</div>
+				 			type="text"
+				 			name="title"
+				 			value={title}
+				 			onChange={this.changeHandler}
+				 		/>
+				 	</div>
 					
-					<button type="submit">Ekle</button>
-				</form>
+				 	<button type="submit">Ekle</button>
+				 </form> */}
+
+				<Form onSubmit={this.submitHandler}>
+					<Form.Field
+						control={Input}
+						label='İş'
+						placeholder='İş Ekleyin'
+						onChange={this.changeHandler}
+						type="text"
+						name="title"
+						value={title}
+						onChange={this.changeHandler}
+
+
+					/>
+					<Form.Field
+
+
+
+						id='form-button-control-public'
+						control={Button}
+						content='Ekle'
+					/>
+
+				</Form>
+
+
 			</div>
 		)
 	}
 }
 
 export default PostForm
+
+
+
+
+
+
+
+
+
+
+{/* <Form.Field
+						control={Input}
+						label='Şehir'
+						placeholder='Şehir Ekleyin'
+						onChange={this.changeHandler}
+						type="text"
+						name="city"
+						value={data.cityName}
+						onChange={this.changeHandler}
+
+
+					/> */}
+

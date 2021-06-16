@@ -12,7 +12,7 @@ export default function CityList() {
         cityService.getCities().then(result => setCities(result.data.data))
 
 
-    }, []) 
+    }, [])
 
 
 
