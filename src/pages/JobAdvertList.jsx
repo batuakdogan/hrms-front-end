@@ -21,7 +21,6 @@ export default function JobAdvertList() {
             <Table.HeaderCell>Pozisyon</Table.HeaderCell>
             <Table.HeaderCell>Çalışma Yeri</Table.HeaderCell>
             <Table.HeaderCell>Çalışma Zamanı</Table.HeaderCell>
-            <Table.HeaderCell>Detaylar</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
 
@@ -31,19 +30,13 @@ export default function JobAdvertList() {
             <Table.Row key={jobAdvert.id}>
               <Table.Cell>{jobAdvert.employer.companyName}</Table.Cell>
               <Table.Cell>{jobAdvert.city.cityName}</Table.Cell>
-              <Table.Cell>{jobAdvert.jobTitle.title}</Table.Cell>
-              <Table.Cell>{jobAdvert.workType.workTypes}</Table.Cell>
+              <Table.Cell>{jobAdvert.jobtitle.title}</Table.Cell>
+              <Table.Cell>{jobAdvert.workType.workType}</Table.Cell>
               <Table.Cell>{jobAdvert.workHour.workHours}</Table.Cell>
-              <Table.Cell>
-                <Button as={Link} to={`/jobads/${jobAdvert.id}`}
-                  content="Detayları Gör"
-                  icon="right arrow"
-                  labelPosition="right"
-                />
-              </Table.Cell>
+              
             </Table.Row>
             ))}
-        </Table.Body>
+        </Table.Body> 
 
         <Table.Footer>
           <Table.Row>

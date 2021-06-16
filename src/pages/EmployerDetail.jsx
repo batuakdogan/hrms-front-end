@@ -7,20 +7,34 @@ import { Link } from "react-router-dom";
 
 export default function EmployerDetail() {
 
-  const [employer, setEmployer] = useState([]);
+
+  let { id } = useParams();
+
+  
+  const [employers, setEmployers] = useState({});
   const [jobAdverts, setJobAdverts] = useState([]);
 
   useEffect(() => {  
     let employerService = new EmployerService();
     let jobAdvertService = new JobAdvertService();
     employerService
-      .getEmployers()
-      .then((result) => setEmployer(result.data.data));
+      .getEmployerById(id)
+      .then((result) => setEmployers(result.data.data)); 
       
     jobAdvertService
-      .getConfirmedJobAds()
+      .getEmployerJobAds(id)
       .then((result) => setJobAdverts(result.data.data));
-  },[]);
+  },[id]);
+
+
+  // const [employers, setEmployers] = useState([]);
+
+  //   useEffect(() => {
+  //     let employerService = new EmployerService();
+  //     employerService
+  //       .getEmployers()
+  //       .then((result) => setEmployers(result.data.data));
+  //   }, []);
 
   return (
     <div>
@@ -33,6 +47,7 @@ export default function EmployerDetail() {
         </Table.Header>
 
         <Table.Body>
+          
           <Table.Row>
             <Table.Cell>
               <Header as="h4">
@@ -42,7 +57,9 @@ export default function EmployerDetail() {
                 </Header.Content>
               </Header>
             </Table.Cell>
-            <Table.Cell>{employer.companyName}</Table.Cell>
+
+            <Table.Cell>{employers.companyName}</Table.Cell>
+
           </Table.Row>
 
           <Table.Row>
@@ -54,7 +71,7 @@ export default function EmployerDetail() {
                 </Header.Content>
               </Header>
             </Table.Cell>
-            <Table.Cell>{employer.webAddress}</Table.Cell>
+            <Table.Cell>{employers.webAdress}</Table.Cell>
           </Table.Row>
 
           <Table.Row>
@@ -66,7 +83,7 @@ export default function EmployerDetail() {
                 </Header.Content>
               </Header>
             </Table.Cell>
-            <Table.Cell>{employer.email}</Table.Cell>
+            <Table.Cell>{employers.email}</Table.Cell>
           </Table.Row>
 
           <Table.Row>
@@ -78,7 +95,7 @@ export default function EmployerDetail() {
                 </Header.Content>
               </Header>
             </Table.Cell>
-            <Table.Cell>{employer.phoneNumber}</Table.Cell>
+            <Table.Cell>{employers.phoneNumber}</Table.Cell>
           </Table.Row>
         </Table.Body>
       </Table>
@@ -93,25 +110,17 @@ export default function EmployerDetail() {
                 <Table.HeaderCell>Şehir</Table.HeaderCell>
                 <Table.HeaderCell>Çalışma Yeri</Table.HeaderCell>
                 <Table.HeaderCell>Çalışma Zamanı</Table.HeaderCell>
-                <Table.HeaderCell>Detaylar</Table.HeaderCell>
               </Table.Row>
             </Table.Header>
 
             <Table.Body>
               {jobAdverts.map((jobAdvert) => (
-                <Table.Row key={jobAdvert.id}>
-                  <Table.Cell>{jobAdvert.jobTitle?.title}</Table.Cell>
+                <Table.Row key={jobAdvert?.id}>
+                  <Table.Cell>{jobAdvert.jobtitle?.title}</Table.Cell>
                   <Table.Cell>{jobAdvert.city?.cityName}</Table.Cell>
-                  <Table.Cell>{jobAdvert.workType?.workTypes}</Table.Cell>
+                  <Table.Cell>{jobAdvert.workType?.workType}</Table.Cell>
                   <Table.Cell>{jobAdvert.workHour?.workHours}</Table.Cell>
-                  <Table.Cell>
-                    <Button animated as={Link} to={`/jobads/${jobAdvert.id}`}>
-                      <Button.Content visible>Detayları Gör</Button.Content> 
-                      <Button.Content hidden>
-                        <Icon name="arrow right" />
-                      </Button.Content>
-                    </Button>
-                  </Table.Cell>
+                  
                 </Table.Row>
               ))}
             </Table.Body>

@@ -12,6 +12,12 @@ export default function EmployerList() {
       .then((result) => setEmployers(result.data.data));
   }, []);
 
+
+
+
+
+
+  
   return (
     <div>
       <Card.Group>

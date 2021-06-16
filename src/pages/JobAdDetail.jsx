@@ -5,17 +5,20 @@ import { Header, Icon, Table, Button, Grid, Card } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 
 export default function JobAdDetail() {
+
+
+
   let { id } = useParams();
 
   const [jobAdvert, setJobAdvert] = useState({});
-
+  
   useEffect(() => {
     let jobAdvertService = new JobAdvertService();
-    jobAdvertService.getJobAdverts(id).then((result) => setJobAdvert(result.data.data));
+    jobAdvertService.getOneById(id).then((result) => setJobAdvert(result.data.data));
   }, [id]);
 
   return (
-    <div>
+    <div> 
       <Card fluid color={"black"}>
         <Card.Content header="Açıklama" />
         <Card.Content>
@@ -43,7 +46,7 @@ export default function JobAdDetail() {
                       </Header.Content>
                     </Header>
                   </Table.Cell>
-                  <Table.Cell>{jobAdvert.employer?.companyName}</Table.Cell>
+                  <Table.Cell>{jobAdvert.employer?.companyName}</Table.Cell> 
                 </Table.Row>
 
                 <Table.Row textAlign={"left"}>
@@ -79,7 +82,7 @@ export default function JobAdDetail() {
                       </Header.Content>
                     </Header>
                   </Table.Cell>
-                  <Table.Cell>{jobAdvert.employer?.webAddress}</Table.Cell>
+                  <Table.Cell>{jobAdvert.employer?.webAdress}</Table.Cell>
                 </Table.Row>
 
                 <Table.Row textAlign={"left"}>
@@ -93,7 +96,7 @@ export default function JobAdDetail() {
                   </Table.Cell>
                   <Table.Cell>
                     <Button animated as={Link} to={`/employers/${jobAdvert.employer?.id}`}>
-                      <Button.Content visible>Detaylara Git</Button.Content>
+                      <Button.Content visible>Detaylara Git</Button.Content> 
                       <Button.Content hidden>
                         <Icon name="arrow right" />
                       </Button.Content>
@@ -106,7 +109,7 @@ export default function JobAdDetail() {
           <Grid.Column width={10}>
             <Table celled fixed singleLine color={"black"}>
               <Table.Header>
-                <Table.Row>
+                <Table.Row> 
                   <Table.HeaderCell>İş İlanı</Table.HeaderCell>
                   <Table.HeaderCell>Detaylar</Table.HeaderCell>
                 </Table.Row>
@@ -115,22 +118,22 @@ export default function JobAdDetail() {
               <Table.Body>
                 <Table.Row>
                   <Table.Cell>İş Pozisyonu</Table.Cell>
-                  <Table.Cell>{jobAdvert.jobTitle?.name}</Table.Cell>
+                  <Table.Cell>{jobAdvert.jobTitle?.title}</Table.Cell>
                 </Table.Row>
 
                 <Table.Row>
                   <Table.Cell>Şehir</Table.Cell>
-                  <Table.Cell>{jobAdvert.city?.name}</Table.Cell>
+                  <Table.Cell>{jobAdvert.city?.cityName}</Table.Cell>
                 </Table.Row>
 
                 <Table.Row>
                   <Table.Cell>Çalışma Yeri</Table.Cell>
-                  <Table.Cell>{jobAdvert.workType?.name}</Table.Cell>
+                  <Table.Cell>{jobAdvert.workType?.workType}</Table.Cell>
                 </Table.Row>
 
                 <Table.Row>
                   <Table.Cell>Çalışma Zamanı</Table.Cell>
-                  <Table.Cell>{jobAdvert.workHour?.name}</Table.Cell>
+                  <Table.Cell>{jobAdvert.workHour?.workHours}</Table.Cell>
                 </Table.Row>
 
                 <Table.Row>

@@ -8,6 +8,7 @@ import WorkHourService from "../services/WorkHourService";
 import WorkTypeService from "../services/WorkTypeService";
 import JobAdvertService from "../services/jobAdvertService";
 import { Link, useHistory } from "react-router-dom";
+import EmployerService from "../services/employerService";
 
 export default function AddJobAdvertisementPage() {  //AddJobAdvertisementPage
   let jobAdvertService = new JobAdvertService();
@@ -19,7 +20,8 @@ export default function AddJobAdvertisementPage() {  //AddJobAdvertisementPage
     workTypeId: Yup.string().required("Bu alanın doldurulması zorunludur"),
     cityId: Yup.string().required("Bu alanın doldurulması zorunludur"),
     minSalary: Yup.number().min(0,"0 Dan az olamaz").required("Bu alan zorunludur"),
-    maxSalary: Yup.number().min(0,"0 Dan az olamaz").required("Bu alan zorunludur")
+    maxSalary: Yup.number().min(0,"0 Dan az olamaz").required("Bu alan zorunludur"),
+    employerId: Yup.string().required("Bu alanın doldurulması zorunludur")
   });
 
   const history = useHistory();
@@ -33,7 +35,10 @@ export default function AddJobAdvertisementPage() {  //AddJobAdvertisementPage
       cityId: "",
       minSalary: "",
       maxSalary: "",
+      quota:"",
       appealExpirationDate: "",
+      employerId: ""
+      
     },
     validationSchema: JobAdvertAddSchema,
     onSubmit: (values) => {
@@ -45,20 +50,23 @@ export default function AddJobAdvertisementPage() {  //AddJobAdvertisementPage
   });
 
   const [workHours, setWorkHours] = useState([]);
-  const [workTypes, setWorkTypes] = useState([]);
+  const [workType, setWorkType] = useState([]);
   const [cities, setCities] = useState([]);
   const [jobTitles, setJobTitles] = useState([]);
+  const [employers,setEmployers] = useState([])
 
   useEffect(() => {
     let workHourService = new WorkHourService();
     let workTypeService = new WorkTypeService();
     let cityService = new CityService();
     let jobTiteService = new JobTitleService();
+    let employerService = new EmployerService();
 
     workHourService.getWorkHours().then((result) => setWorkHours(result.data.data));
-    workTypeService.getWorkTypes().then((result) => setWorkTypes(result.data.data));
+    workTypeService.getWorkTypes().then((result) => setWorkType(result.data.data));
     cityService.getCities().then((result) => setCities(result.data.data));
     jobTiteService.getJobTitles().then((result) => setJobTitles(result.data.data));
+    employerService.getEmployers().then((result)=>setEmployers(result.data.data)  );
   }, []);
 
   const workHourOption = workHours.map((workHour, index) => ({
@@ -66,9 +74,9 @@ export default function AddJobAdvertisementPage() {  //AddJobAdvertisementPage
     text: workHour.workHours,
     value: workHour.id,
   }));
-  const workTypeOption = workTypes.map((workType, index) => ({
+  const workTypeOption = workType.map((workType, index) => ({
     key: index,
-    text: workType.workTypes,
+    text: workType.workType,
     value: workType.id,
   }));
   const cityOption = cities.map((city, index) => ({
@@ -81,6 +89,12 @@ export default function AddJobAdvertisementPage() {  //AddJobAdvertisementPage
     text: jobTitle.title,
     value: jobTitle.id,
   }));
+  const employerOption = employers.map((employer,index) =>({
+    key:index,
+    text: employer.companyName,
+    value: employer.id,
+
+  }) );
 
   const handleChangeSemantic = (value, fieldName) => {
     formik.setFieldValue(fieldName, value);
@@ -180,7 +194,7 @@ export default function AddJobAdvertisementPage() {  //AddJobAdvertisementPage
               </Form.Field>
               <Form.Field>
               <Grid stackable>
-              <Grid.Column width={8}>
+              <Grid.Column width={5}>
               <label style={{fontWeight: "bold"}}>Maaş aralığı MİNİMUM</label>
                 <Input
                   style={{ width: "100%" }}
@@ -198,7 +212,7 @@ export default function AddJobAdvertisementPage() {  //AddJobAdvertisementPage
                   </div>
                 )}
                 </Grid.Column>
-                <Grid.Column width={8}>
+                <Grid.Column width={6}>
                 <label style={{fontWeight: "bold"}}>Maaş aralığı MAKSİMUM</label>
                 <Input
                   style={{ width: "100%" }}
@@ -216,10 +230,50 @@ export default function AddJobAdvertisementPage() {  //AddJobAdvertisementPage
                   </div>
                 )}
                 </Grid.Column>
+                <Grid.Column width={5}>
+                <label style={{fontWeight: "bold"}}>Maaş Kotası</label>
+                <Input
+                  style={{ width: "100%" }}
+                  type="number"
+                  placeholder="Maaş Kotası"
+                  value={formik.values.quota}
+                  name="quota"
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                >
+                </Input>
+                {formik.errors.quota && formik.touched.quota && (
+                  <div className={"ui pointing red basic label"}>
+                    {formik.errors.quota}
+                  </div>
+                )}
+                </Grid.Column> 
                 </Grid>
+          
               </Form.Field>
 
+
               
+
+              <Dropdown
+              clearable
+              item
+              placeholder="Şirket İsmi"
+              search
+              selection
+              onChange={(event, data) =>
+                handleChangeSemantic(data.value, "employerId")
+              }
+              onBlur={formik.onBlur}
+              id="employerId"
+              value={formik.values.employerId}
+              options={employerOption}
+              />
+              {formik.errors.employerId && formik.touched.employerId && (
+                <div className={"ui pointing red basic label"}>
+                {formik.errors.employerId}
+              </div>
+              )}
               
                 
               <Form.Field>
@@ -244,6 +298,9 @@ export default function AddJobAdvertisementPage() {  //AddJobAdvertisementPage
                 )}
                 </Grid.Column>
               </Form.Field>
+
+             
+              
 
               <Form.Field>
               <label>Açıklama</label>

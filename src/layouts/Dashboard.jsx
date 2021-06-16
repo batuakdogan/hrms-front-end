@@ -23,7 +23,7 @@ export default function Dashboard() {
                         <Route exact path="/" component={JobAdvertList}/>
                         <Route exact path="/candidates" component={CandidateList}/>
                         <Route exact path="/employers" component={EmployerList}/>
-                        <Route exact path="/employers/:name" component={EmployerDetail}/>
+                        <Route exact path="/employers/:id" component={EmployerDetail}/>
 
                         <Route exact path="/jobads" component={JobAdvertList}/>
                         <Route exact path="/jobAdCreate" component={AddJobAdvertisementPage}/>
