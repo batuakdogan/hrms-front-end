@@ -21,7 +21,7 @@ export default function Section() {
                 </Grid.Row>
 
                 <Grid.Row>
-                    <Grid.Column size={14}>
+                    <Grid.Column size={14}> 
                         <JobTitleList />
                     </Grid.Column>
                 </Grid.Row>
@@ -75,7 +75,7 @@ export default function Section() {
                 <JobAdDetail/>
 
 
-  
+        <AddJobTitle/>
 
 
             

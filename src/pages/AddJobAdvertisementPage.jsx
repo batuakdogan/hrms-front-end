@@ -14,6 +14,7 @@ export default function AddJobAdvertisementPage() {  //AddJobAdvertisementPage
   let jobAdvertService = new JobAdvertService();
   const JobAdvertAddSchema = Yup.object().shape({
     appealExpirationDate: Yup.date().nullable().required("Bu alanın doldurulması zorunludur"),
+    createdDate: Yup.date().nullable().required("Bu alanın doldurulması zorunludur"),
     description: Yup.string().required("Bu alanın doldurulması zorunludur"),
     jobTitleId: Yup.string().required("Bu alanın doldurulması zorunludur"),
     workHourId: Yup.string().required("Bu alanın doldurulması zorunludur"),
@@ -21,8 +22,8 @@ export default function AddJobAdvertisementPage() {  //AddJobAdvertisementPage
     cityId: Yup.string().required("Bu alanın doldurulması zorunludur"),
     minSalary: Yup.number().min(0,"0 Dan az olamaz").required("Bu alan zorunludur"),
     maxSalary: Yup.number().min(0,"0 Dan az olamaz").required("Bu alan zorunludur"),
-    employerId: Yup.string().required("Bu alanın doldurulması zorunludur")
   });
+
 
   const history = useHistory();
 
@@ -36,37 +37,46 @@ export default function AddJobAdvertisementPage() {  //AddJobAdvertisementPage
       minSalary: "",
       maxSalary: "",
       quota:"",
-      appealExpirationDate: "",
+      appealExpirationDate:"",
+      
       employerId: ""
       
     },
-    validationSchema: JobAdvertAddSchema,
-    onSubmit: (values) => {
-      values.employerId = 4;
-      jobAdvertService.add(values).then((result) => console.log(result.data.data));
+
+// dur bakalım birde boyle deneyelım 
+
+
+// kanka created dateyi frontende almana gerek yok 
+
+
+    
+    validationSchema: JobAdvertAddSchema,    
+    onSubmit:
+    (values) => {
+      values.employerId = 10;
+      jobAdvertService.add(values).then((data) => console.log(data.data.data));
       alert("İş ilanı eklendi personelin onayı ardından listelenecektir");
       history.push("/jobads");
+          console.log(values)
+      
     },
   });
 
   const [workHours, setWorkHours] = useState([]);
-  const [workType, setWorkType] = useState([]);
+  const [workType, setWorkType] = useState([]); 
   const [cities, setCities] = useState([]);
   const [jobTitles, setJobTitles] = useState([]);
-  const [employers,setEmployers] = useState([])
 
   useEffect(() => {
     let workHourService = new WorkHourService();
     let workTypeService = new WorkTypeService();
     let cityService = new CityService();
     let jobTiteService = new JobTitleService();
-    let employerService = new EmployerService();
 
-    workHourService.getWorkHours().then((result) => setWorkHours(result.data.data));
-    workTypeService.getWorkTypes().then((result) => setWorkType(result.data.data));
-    cityService.getCities().then((result) => setCities(result.data.data));
-    jobTiteService.getJobTitles().then((result) => setJobTitles(result.data.data));
-    employerService.getEmployers().then((result)=>setEmployers(result.data.data)  );
+    workHourService.getWorkHours().then((data) => setWorkHours(data.data.data));
+    workTypeService.getWorkTypes().then((data) => setWorkType(data.data.data));
+    cityService.getCities().then((data) => setCities(data.data.data));
+    jobTiteService.getJobTitles().then((data) => setJobTitles(data.data.data));
   }, []);
 
   const workHourOption = workHours.map((workHour, index) => ({
@@ -89,12 +99,7 @@ export default function AddJobAdvertisementPage() {  //AddJobAdvertisementPage
     text: jobTitle.title,
     value: jobTitle.id,
   }));
-  const employerOption = employers.map((employer,index) =>({
-    key:index,
-    text: employer.companyName,
-    value: employer.id,
-
-  }) );
+  
 
   const handleChangeSemantic = (value, fieldName) => {
     formik.setFieldValue(fieldName, value);
@@ -107,7 +112,7 @@ export default function AddJobAdvertisementPage() {  //AddJobAdvertisementPage
       <Card.Content>
       <Form onSubmit={formik.handleSubmit}>
         <Form.Field style={{marginBottom: "1rem"}}>
-          <label>İş Posisyonu</label>
+          <label>İş Pozisyonu</label>
         <Dropdown
           clearable
           item
@@ -231,11 +236,11 @@ export default function AddJobAdvertisementPage() {  //AddJobAdvertisementPage
                 )}
                 </Grid.Column>
                 <Grid.Column width={5}>
-                <label style={{fontWeight: "bold"}}>Maaş Kotası</label>
+                <label style={{fontWeight: "bold"}}>Açık Pozisyon Sayısı</label>
                 <Input
                   style={{ width: "100%" }}
                   type="number"
-                  placeholder="Maaş Kotası"
+                  placeholder="Açık Pozisyon Sayısı"
                   value={formik.values.quota}
                   name="quota"
                   onChange={formik.handleChange}
@@ -255,25 +260,7 @@ export default function AddJobAdvertisementPage() {  //AddJobAdvertisementPage
 
               
 
-              <Dropdown
-              clearable
-              item
-              placeholder="Şirket İsmi"
-              search
-              selection
-              onChange={(event, data) =>
-                handleChangeSemantic(data.value, "employerId")
-              }
-              onBlur={formik.onBlur}
-              id="employerId"
-              value={formik.values.employerId}
-              options={employerOption}
-              />
-              {formik.errors.employerId && formik.touched.employerId && (
-                <div className={"ui pointing red basic label"}>
-                {formik.errors.employerId}
-              </div>
-              )}
+              
               
                 
               <Form.Field>
@@ -294,6 +281,30 @@ export default function AddJobAdvertisementPage() {  //AddJobAdvertisementPage
                 {formik.errors.appealExpirationDate && formik.touched.appealExpirationDate && (
                   <div className={"ui pointing red basic label"}>
                     {formik.errors.appealExpirationDate}
+                  </div>
+                )}
+                </Grid.Column>
+              </Form.Field>
+
+
+              <Form.Field>
+                <Grid.Column width={8}>
+                <label style={{fontWeight: "bold"}}>Oluşturma Tarihi</label>
+                <Input
+                  style={{ width: "100%" }}
+                  type="date"
+                  error={Boolean(formik.errors.createdDate)}
+                  onChange={(event, data) =>
+                    handleChangeSemantic(data.value, "createdDate")
+                  }
+                  value={formik.values.createdDate}
+                  onBlur={formik.handleBlur}
+                  name="createdDate"
+                  placeholder="Oluşturulma Tarihi"
+                />
+                {formik.errors.createdDate && formik.touched.createdDate && (
+                  <div className={"ui pointing red basic label"}>
+                    {formik.errors.createdDate}
                   </div>
                 )}
                 </Grid.Column>

@@ -27,27 +27,10 @@ class PostForm extends Component {
 				console.log(error)
 			})
 	}
-
 	render() {
 		const { title } = this.state
 		return (
 			<div>
-				{/* <form onSubmit={this.submitHandler}>
-					
-				 	<div>
-				 <font color="red" size="4">Lütfen İş Ekleyin</font><br/> <br/>
-				 		<input
-						
-				 			type="text"
-				 			name="title"
-				 			value={title}
-				 			onChange={this.changeHandler}
-				 		/>
-				 	</div>
-					
-				 	<button type="submit">Ekle</button>
-				 </form> */}
-
 				<Form onSubmit={this.submitHandler}>
 					<Form.Field
 						control={Input}
@@ -58,21 +41,14 @@ class PostForm extends Component {
 						name="title"
 						value={title}
 						onChange={this.changeHandler}
-
-
 					/>
 					<Form.Field
-
-
-
 						id='form-button-control-public'
 						control={Button}
 						content='Ekle'
 					/>
 
 				</Form>
-
-
 			</div>
 		)
 	}
