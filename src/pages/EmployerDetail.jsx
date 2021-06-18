@@ -95,7 +95,6 @@ export default function EmployerDetail() {
 
 
 
-<br/> <br/> <br/> <br/> <br/> 
 
 
 
