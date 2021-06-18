@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Icon, Menu, Table, Button } from "semantic-ui-react";
 import JobAdvertService from "../services/jobAdvertService";
-
+import AddJobTitle from '../pages/AddJobTitle'
 export default function JobAdvertList() {
   const [jobAdverts, setJobAdverts] = useState([]);
 
   useEffect(() => {
     let jobAdvertService = new JobAdvertService();
-    jobAdvertService.getAllActives().then((result) => setJobAdverts(result.data.data));
+    jobAdvertService.getConfirmedJobAds().then((result) => setJobAdverts(result.data.data));
   }, []);
 
   return (
@@ -21,22 +21,32 @@ export default function JobAdvertList() {
             <Table.HeaderCell>Pozisyon</Table.HeaderCell>
             <Table.HeaderCell>Çalışma Yeri</Table.HeaderCell>
             <Table.HeaderCell>Çalışma Zamanı</Table.HeaderCell>
+            <Table.HeaderCell>Minimum Ücret</Table.HeaderCell>
+            <Table.HeaderCell>Maksimum  Ücret</Table.HeaderCell>
+            <Table.HeaderCell>Açık Pozisyon Sayısı</Table.HeaderCell>
+            <Table.HeaderCell>Son Başvuru Tarihi</Table.HeaderCell>
+            <Table.HeaderCell>İş İlanı Tanımı</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
 
         <Table.Body>
           {
             jobAdverts.map(jobAdvert => (
-            <Table.Row key={jobAdvert.id}>
-              <Table.Cell>{jobAdvert.employer.companyName}</Table.Cell>
-              <Table.Cell>{jobAdvert.city.cityName}</Table.Cell>
-              <Table.Cell>{jobAdvert.jobtitle.title}</Table.Cell>
-              <Table.Cell>{jobAdvert.workType.workType}</Table.Cell>
-              <Table.Cell>{jobAdvert.workHour.workHours}</Table.Cell>
-              
-            </Table.Row>
+              <Table.Row key={jobAdvert.id}>
+                <Table.Cell>{jobAdvert.employer.companyName}</Table.Cell>
+                <Table.Cell>{jobAdvert.city.cityName}</Table.Cell>
+                <Table.Cell>{jobAdvert.jobtitle.title}</Table.Cell>
+                <Table.Cell>{jobAdvert.workType.workType}</Table.Cell>
+                <Table.Cell>{jobAdvert.workHour.workHours}</Table.Cell>
+                <Table.Cell>{jobAdvert.minSalary}</Table.Cell>
+                <Table.Cell>{jobAdvert.maxSalary}</Table.Cell>
+                <Table.Cell>{jobAdvert.quota}</Table.Cell>
+                <Table.Cell>{jobAdvert.appealExpirationDate}</Table.Cell>
+                <Table.Cell>{jobAdvert.description}</Table.Cell>
+
+              </Table.Row>
             ))}
-        </Table.Body> 
+        </Table.Body>
 
         <Table.Footer>
           <Table.Row>
@@ -57,10 +67,10 @@ export default function JobAdvertList() {
           </Table.Row>
         </Table.Footer>
       </Table>
-      <Link to ="/jobAdCreate">
-      <Button className="ui button">
-        Ekle
-      </Button>
+      <Link to="/jobAdCreate">
+        <Button className="ui button">
+          Ekle
+        </Button>
       </Link>
     </div>
   );

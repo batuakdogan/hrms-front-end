@@ -14,7 +14,7 @@ export default function JobAdDetail() {
   
   useEffect(() => {
     let jobAdvertService = new JobAdvertService();
-    jobAdvertService.getOneById(id).then((result) => setJobAdvert(result.data.data));
+    jobAdvertService.getEmployerJobAds(id).then((result) => setJobAdvert(result.data.data));
   }, [id]);
 
   return (
@@ -99,7 +99,7 @@ export default function JobAdDetail() {
                       <Button.Content visible>Detaylara Git</Button.Content> 
                       <Button.Content hidden>
                         <Icon name="arrow right" />
-                      </Button.Content>
+                      </Button.Content>  
                     </Button>
                   </Table.Cell>
                 </Table.Row>

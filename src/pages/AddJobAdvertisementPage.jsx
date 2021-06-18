@@ -43,10 +43,7 @@ export default function AddJobAdvertisementPage() {  //AddJobAdvertisementPage
       
     },
 
-// dur bakalım birde boyle deneyelım 
 
-
-// kanka created dateyi frontende almana gerek yok 
 
 
     

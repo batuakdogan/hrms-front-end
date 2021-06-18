@@ -4,7 +4,6 @@ import EmployerService from "../services/employerService";
 import { Header, Table, Icon, Card, Button } from "semantic-ui-react";
 import JobAdvertService from '../services/jobAdvertService'
 import { Link } from "react-router-dom";
-
 export default function EmployerDetail() {
 
 
@@ -22,19 +21,12 @@ export default function EmployerDetail() {
       .then((result) => setEmployers(result.data.data)); 
       
     jobAdvertService
-      .getEmployerJobAds(id)
+      .getJobAdverts()
       .then((result) => setJobAdverts(result.data.data));
-  },[id]);
+  },[id]); 
 
 
-  // const [employers, setEmployers] = useState([]);
-
-  //   useEffect(() => {
-  //     let employerService = new EmployerService();
-  //     employerService
-  //       .getEmployers()
-  //       .then((result) => setEmployers(result.data.data));
-  //   }, []);
+  
 
   return (
     <div>
@@ -100,37 +92,17 @@ export default function EmployerDetail() {
         </Table.Body>
       </Table>
 
-      <Card fluid>
-        <Card.Content header="Bu Şirkete Ait İş İlanları" />
-        <Card.Content>
-          <Table color={"black"}>
-            <Table.Header>
-              <Table.Row>
-                <Table.HeaderCell>İş Pozisyonu</Table.HeaderCell>
-                <Table.HeaderCell>Şehir</Table.HeaderCell>
-                <Table.HeaderCell>Çalışma Yeri</Table.HeaderCell>
-                <Table.HeaderCell>Çalışma Zamanı</Table.HeaderCell>
-              </Table.Row>
-            </Table.Header>
 
-            <Table.Body>
-              {jobAdverts.map((jobAdvert) => (
-                <Table.Row key={jobAdvert?.id}>
-                  <Table.Cell>{jobAdvert.jobtitle?.title}</Table.Cell>
-                  <Table.Cell>{jobAdvert.city?.cityName}</Table.Cell>
-                  <Table.Cell>{jobAdvert.workType?.workType}</Table.Cell>
-                  <Table.Cell>{jobAdvert.workHour?.workHours}</Table.Cell>
-                  
-                </Table.Row>
-              ))}
-            </Table.Body>
-          </Table>
-        </Card.Content>
-        <Card.Content extra>
-          <Icon name="list" />
-          {jobAdverts?.length} Adet İş ilanı mevcut
-        </Card.Content>
-      </Card>
+
+
+<br/> <br/> <br/> <br/> <br/> 
+
+
+
+
+
+
+     
     </div>
   );
 }
