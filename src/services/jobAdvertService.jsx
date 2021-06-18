@@ -32,7 +32,12 @@ export default class JobAdvertisementService{
     }
 
     add(values){
-        return axios.post("http://localhost:8080/api/jobAdvertisements/add",values)
+        return axios.post("http://localhost:8080/api/jobAdvertisements/add",values, {
+            headers: {
+                'Content-Type': 'application/json',
+                
+            }
+        })
     }
 
     confirmJobAdById(id){

@@ -25,13 +25,12 @@ export default function EmployerList() {
           <Card fluid key={employer.id}>
             <Card.Content>
               <Card.Header>{employer.companyName}</Card.Header>
-              <Card.Meta>{employer.webAddress}</Card.Meta>
               <Card.Description>
                 <p><b> <Icon name="mail" />
                   E-Posta: </b>{employer.email}</p>
                 <p><b>  
                 <Icon name="phone" />
-Telefon: </b>{employer.phoneNumber}</p>
+                Telefon: </b>{employer.phoneNumber}</p>
               </Card.Description>
             </Card.Content>
             <Card.Content extra>
@@ -40,9 +39,7 @@ Telefon: </b>{employer.phoneNumber}</p>
                   Detaylar
                 </Button>
 
-                <Button basic color="blue">
-                  <a href={"https://" + employer.webAddress} target={"_blank"} rel="noopener noreferrer">Web Sitesi</a>
-                </Button>
+                
               </div>
             </Card.Content>
           </Card>
