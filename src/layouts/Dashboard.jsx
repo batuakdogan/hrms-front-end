@@ -1,6 +1,7 @@
 import React from 'react'
 import Categories from './Categories'
 import Navi from './Navi'
+import JobAdsConfirmPage from '../pages/JobAdsConfirmPage'
 import { Container, Grid } from 'semantic-ui-react';
 import JobAdvertList from '../pages/JobAdvertList'
 import CandidateList from '../pages/CandidateList';
@@ -9,6 +10,7 @@ import { Route } from 'react-router';
 import JobAdDetail from '../pages/JobAdDetail';
 import EmployerDetail from '../pages/EmployerDetail';
 import AddJobAdvertisementPage from '../pages/AddJobAdvertisementPage';
+import WaitingJobAds from '../pages/WaitingJobAds';
 
 export default function Dashboard() {
     return (
@@ -28,6 +30,8 @@ export default function Dashboard() {
                         <Route exact path="/jobads" component={JobAdvertList}/>
                         <Route exact path="/jobAdCreate" component={AddJobAdvertisementPage}/>
                         <Route exact path="/jobads/:id" component={JobAdDetail}/>
+                        <Route exact path="/waitingads" component={WaitingJobAds}/>
+                        <Route exact path="/confirmads" component={JobAdsConfirmPage}/>
                     </Grid.Column>
                 </Grid>
             </Container>

@@ -21,10 +21,15 @@ export default function Categories() {
           Kullanıcılar
         </Menu.Item>
 
+        <Menu.Item as={Link} to={"/waitingads"}>
+            <Icon name="factory" />
+            Bekleyen İş İlanları       
+        </Menu.Item>
         <Menu.Item as={Link} to={"/cvs"}>
           <Icon name="wordpress forms" />
           Cvler
         </Menu.Item>
+        
       </Menu>
     </div>
   );

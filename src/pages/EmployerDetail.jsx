@@ -90,12 +90,13 @@ export default function EmployerDetail() {
             <Table.Cell>{employers.phoneNumber}</Table.Cell>
           </Table.Row>
         </Table.Body>
-      </Table>
 
 
 
+</Table>
 
-<br/> <br/> <br/> <br/> <br/> 
+
+
 
 
 

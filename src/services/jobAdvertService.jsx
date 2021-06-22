@@ -44,4 +44,6 @@ export default class JobAdvertisementService{
         return axios.post("http://localhost:8080/api/jobAdvertisements/confirmJobAdById?id="+id)
     }
 
+    
+
 }

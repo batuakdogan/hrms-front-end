@@ -1,22 +1,24 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
 import { Icon, Menu, Table, Button } from "semantic-ui-react";
+import { Link } from "react-router-dom";
 import JobAdvertService from "../services/jobAdvertService";
-import AddJobTitle from '../pages/AddJobTitle'
-import WaitingJobAds from "./WaitingJobAds";
-export default function JobAdvertList() {
-  const [jobAdverts, setJobAdverts] = useState([]);
+export default function WaitingJobAds() {
 
-  useEffect(() => {
+const [jobAdverts,setJobAdverts] = useState([]);
+useEffect(()=>{
     let jobAdvertService = new JobAdvertService();
-    jobAdvertService.getConfirmedJobAds().then((result) => setJobAdverts(result.data.data));
-  }, []);
+    jobAdvertService.getWaitingJobAds().then((result)=>
+        setJobAdverts(result.data.data)
+    );
+},[])
 
-  return (
-    <div>
-      <Table celled color={"black"}>
+
+    return (
+        <div>
+            <Table celled color={"black"}>
         <Table.Header>
-          <Table.Row>
+          <Table.Row> 
+          <Table.HeaderCell>İş İlanı ID</Table.HeaderCell>
             <Table.HeaderCell>Şirket Adı</Table.HeaderCell>
             <Table.HeaderCell>Şehir</Table.HeaderCell>
             <Table.HeaderCell>Pozisyon</Table.HeaderCell>
@@ -34,6 +36,7 @@ export default function JobAdvertList() {
           {
             jobAdverts.map(jobAdvert => (
               <Table.Row key={jobAdvert.id}>
+              <Table.Cell>{jobAdvert.id}</Table.Cell>
                 <Table.Cell>{jobAdvert.employer.companyName}</Table.Cell>
                 <Table.Cell>{jobAdvert.city.cityName}</Table.Cell>
                 <Table.Cell>{jobAdvert.jobtitle.title}</Table.Cell>
@@ -68,15 +71,14 @@ export default function JobAdvertList() {
           </Table.Row>
         </Table.Footer>
       </Table>
-      <Link to="/jobAdCreate">
+      <Link to="/confirmads">
         <Button className="ui button">
-          Ekle
-        </Button>
+          İş İlanı Onayla
+        </Button> 
       </Link>
 
-
-
-
-    </div>
-  );
+      
+        
+        </div>
+    )
 }
