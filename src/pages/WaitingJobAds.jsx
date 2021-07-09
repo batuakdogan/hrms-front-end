@@ -4,17 +4,28 @@ import { Link } from "react-router-dom";
 import JobAdvertService from "../services/jobAdvertService";
 export default function WaitingJobAds() {
 
+
+
+
+
+
 const [jobAdverts,setJobAdverts] = useState([]);
 useEffect(()=>{
     let jobAdvertService = new JobAdvertService();
     jobAdvertService.getWaitingJobAds().then((result)=>
         setJobAdverts(result.data.data)
     );
+
+    
+    
+  
 },[])
+
 
 
     return (
         <div>
+           
             <Table celled color={"black"}>
         <Table.Header>
           <Table.Row> 
@@ -70,6 +81,7 @@ useEffect(()=>{
             </Table.HeaderCell>
           </Table.Row>
         </Table.Footer>
+
       </Table>
       <Link to="/confirmads">
         <Button className="ui button">
@@ -78,7 +90,10 @@ useEffect(()=>{
       </Link>
 
       
+
+      
         
         </div>
     )
+   
 }

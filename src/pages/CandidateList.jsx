@@ -6,7 +6,6 @@ export default function CandidateList() {
 
 
 
-
     const [candidates, setCandidates] = useState([])
 
     useEffect(()=>{
@@ -16,13 +15,11 @@ export default function CandidateList() {
 
     return (
         <div>
-                        <font face="COW BOYS" color="red" size="5">İş Arayanlar</font>
+        <font face="COW BOYS" color="red" size="5">İş Arayanlar</font>
 
             <Table celled>
                 <Table.Header>
                     <Table.Row>
-                        <Table.HeaderCell>Email</Table.HeaderCell>
-                        <Table.HeaderCell>Şifre</Table.HeaderCell>
                         <Table.HeaderCell>İsim</Table.HeaderCell>
                         <Table.HeaderCell>Soy İsim</Table.HeaderCell>
                         <Table.HeaderCell>T.C Kimlik No.</Table.HeaderCell>
@@ -35,9 +32,7 @@ export default function CandidateList() {
                 <Table.Body>
                     {
                         candidates.map(candidate => (
-                            <Table.Row>
-                                <Table.Cell>{candidate.email}</Table.Cell>
-                                <Table.Cell>{candidate.password}</Table.Cell>
+                            <Table.Row key={candidate.id}>
                                 <Table.Cell>{candidate.firstName}</Table.Cell>
                                 <Table.Cell>{candidate.lastName}</Table.Cell>
                                 <Table.Cell>{candidate.identificationNumber}</Table.Cell>

@@ -17,7 +17,7 @@ export default function EmployerDetail() {
     let employerService = new EmployerService();
     let jobAdvertService = new JobAdvertService();
     employerService
-      .getEmployerById(id)
+      .findById(id)
       .then((result) => setEmployers(result.data.data)); 
       
     jobAdvertService

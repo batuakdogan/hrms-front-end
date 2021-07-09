@@ -39,8 +39,8 @@ class JobAdsConfirmPage extends Component {
 				<Form onSubmit={this.submitHandler}>
 					<Form.Field
 						control={Input}
-						label='İş'
-						placeholder='İş Ekleyin'
+						label='İş İlanı ID'
+						placeholder="Lütfen İş İlanının ID'sini girin.    "
 						onChange={this.changeHandler}
 						type="text"
 						name="id"
@@ -50,9 +50,11 @@ class JobAdsConfirmPage extends Component {
 					<Form.Field
 						id='form-button-control-public'
 						control={Button}
-						content='Ekle'
+						content='Onayla'
 						
 						/>
+												
+
 						
 
 				</Form>

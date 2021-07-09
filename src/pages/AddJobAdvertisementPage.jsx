@@ -4,8 +4,8 @@ import * as Yup from "yup";
 import { Button, Dropdown, Input, TextArea, Card, Form, Grid } from "semantic-ui-react";
 import CityService from "../services/cityService";
 import JobTitleService from "../services/jobTitleService";
-import WorkHourService from "../services/WorkHourService";
-import WorkTypeService from "../services/WorkTypeService";
+import WorkHourService from "../services/workHourService";
+import WorkTypeService from "../services/workTypeService";
 import JobAdvertService from "../services/jobAdvertService";
 import { Link, useHistory } from "react-router-dom";
 import EmployerService from "../services/employerService";
@@ -50,7 +50,7 @@ export default function AddJobAdvertisementPage() {  //AddJobAdvertisementPage
     validationSchema: JobAdvertAddSchema,    
     onSubmit:
     (values) => {
-      values.employerId = 10;
+      values.employerId = 2;
       jobAdvertService.add(values).then((data) => console.log(data.data.data));
       alert("İş ilanı eklendi personelin onayı ardından listelenecektir");
       history.push("/jobads");

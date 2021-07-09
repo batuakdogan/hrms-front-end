@@ -11,6 +11,7 @@ import JobAdDetail from '../pages/JobAdDetail';
 import EmployerDetail from '../pages/EmployerDetail';
 import AddJobAdvertisementPage from '../pages/AddJobAdvertisementPage';
 import WaitingJobAds from '../pages/WaitingJobAds';
+import CvList from '../pages/CvList';
 
 export default function Dashboard() {
     return (
@@ -26,6 +27,8 @@ export default function Dashboard() {
                         <Route exact path="/candidates" component={CandidateList}/>
                         <Route exact path="/employers" component={EmployerList}/>
                         <Route exact path="/employers/:id" component={EmployerDetail}/>
+                        <Route exact path="/cvs" component={CvList}/>
+                        <Route exact path="/jobads/:id" component={JobAdDetail}/>
 
                         <Route exact path="/jobads" component={JobAdvertList}/>
                         <Route exact path="/jobAdCreate" component={AddJobAdvertisementPage}/>
@@ -35,6 +38,6 @@ export default function Dashboard() {
                     </Grid.Column>
                 </Grid>
             </Container>
-        </div>
+        </div>    
     )
-}
+}         
