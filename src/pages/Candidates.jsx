@@ -10,6 +10,7 @@ export default function Candidates() {
     let candidateService = new CandidateService();
     candidateService
       .getMailVerifyedCandidates()
+      
       .then((result) => setCandidates(result.data.data));
   }, []);
 

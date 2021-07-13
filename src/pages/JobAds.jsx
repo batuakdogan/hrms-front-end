@@ -183,6 +183,7 @@ export default function JobAds() {
       </Card.Content>
       </Card>
 
+
     </div>
   )
 }

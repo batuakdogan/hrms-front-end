@@ -3,6 +3,6 @@ import axios from "axios";
 export default class CityService{
 
     getCitys(){
-        return axios.get("https://kodlamaio-hrms.herokuapp.com/city/getAll")
+        return axios.get("http://localhost:8080/api/city/getAll")
     }
 }

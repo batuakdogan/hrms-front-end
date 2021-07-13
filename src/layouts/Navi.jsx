@@ -17,11 +17,11 @@ export default function Navi() {
           <Menu.Item name="Ana Sayfa" as={Link} to={"/"}>
           <Icon name="home" />Ana Sayfa
           </Menu.Item>
-          <Menu.Item name="İş ilanları" as={Link} to={"/jobads"} />
-          <Menu.Item name="Cvler" as={Link} to={"/cvs"} />
+          <Menu.Item name="İş ilanları" as={Link} to={"/jobads"} icon="briefcase"/>
+          <Menu.Item name="Cvler" as={Link} to={"/cvs"} icon="table" />
 
           <Menu.Menu position="right" style={{ margin: '0.5em' }}>
-            {authItem[0].loggedIn && authItem[0].user.userType===2 &&  <Button primary as={Link} to={"/jobAdCreate"}>
+            {authItem[0].loggedIn && authItem[0].user.userType===2 &&  <Button primary as={Link} to={"/jobAdCreate"} icon="add">
               İlan Ekle
             </Button>}
             {authItem[0].loggedIn && authItem[0].user.userType===1 &&  <Button color="red" as={Link} to={`/jobAdFavorites`}>
