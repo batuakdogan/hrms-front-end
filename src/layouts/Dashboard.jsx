@@ -11,13 +11,16 @@ import { Route } from 'react-router';
 import JobAdDetail from '../pages/JobAdDetail';
 import EmployerDetail from '../pages/EmployerDetail';
 import Login from '../pages/Login';
+
+import AboutUs from '../pages/AboutUs'
+
 import Register from '../pages/Register';
 import CvDetail from '../pages/CvDetail';
 import JobAdCreate from '../pages/JobAdCreate';
 import RegisterEmployer from '../pages/RegisterEmployer';
 import JobAdFavorites from '../pages/JobAdFavorites';
 import Footer from './Footer';
-import { ToastContainer } from "react-toastify";
+import { ToastContainer } from "react-toastify"; 
 
 export default function Dashboard() {
     return (
@@ -43,6 +46,8 @@ export default function Dashboard() {
                         <Route exact path="/jobAdCreate" component={JobAdCreate}/>
                         <Route exact path="/jobads/:id" component={JobAdDetail}/>
                         <Route exact path="/jobAdFavorites" component={JobAdFavorites}/>
+                        <Route exact path="/about" component={AboutUs}/>   
+                        
                     </Grid.Column>
                 </Grid>
             </Container>

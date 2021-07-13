@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   Container,
   Grid,
@@ -28,7 +29,7 @@ export default function Footer() {
             <Grid.Row>
               <Grid.Column width={3}>
                 <List link inverted>
-                  <List.Item as="a">Hakkımızda</List.Item>
+                  <List.Item as={Link} to={"/about"}>Hakkımızda</List.Item>
                   <List.Item as="a">İletişim</List.Item>
                 </List>
               </Grid.Column>

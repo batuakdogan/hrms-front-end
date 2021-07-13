@@ -6,12 +6,14 @@ import "../App.css";
 import SingedIn from "./SingedIn";
 import SingedOut from "./SingedOut";
 
+
 export default function Navi() {
 
   const {authItem} = useSelector(state => state.auth)
 
   return (
     <div>
+
       <Menu size="large" inverted stackable>
         <Container>
           <Menu.Item name="Ana Sayfa" as={Link} to={"/"}>
