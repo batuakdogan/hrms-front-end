@@ -1,21 +1,28 @@
 import React from 'react'
 import Categories from './Categories'
 import Navi from './Navi'
-import JobAdsConfirmPage from '../pages/JobAdsConfirmPage'
 import { Container, Grid } from 'semantic-ui-react';
-import JobAdvertList from '../pages/JobAdvertList'
-import CandidateList from '../pages/CandidateList';
-import EmployerList from '../pages/EmployerList';
+import './Dashboard.css';
+import JobAds from '../pages/JobAds';
+import Candidates from '../pages/Candidates';
+import Cvs from '../pages/Cvs';
+import Employers from '../pages/Employers';
 import { Route } from 'react-router';
 import JobAdDetail from '../pages/JobAdDetail';
 import EmployerDetail from '../pages/EmployerDetail';
-import AddJobAdvertisementPage from '../pages/AddJobAdvertisementPage';
-import WaitingJobAds from '../pages/WaitingJobAds';
-import CvList from '../pages/CvList';
+import Login from '../pages/Login';
+import Register from '../pages/Register';
+import CvDetail from '../pages/CvDetail';
+import JobAdCreate from '../pages/JobAdCreate';
+import RegisterEmployer from '../pages/RegisterEmployer';
+import JobAdFavorites from '../pages/JobAdFavorites';
+import Footer from './Footer';
+import { ToastContainer } from "react-toastify";
 
 export default function Dashboard() {
     return (
         <div>
+            <ToastContainer position="bottom-right"/>
             <Navi />
             <Container className="main">                
                 <Grid stackable>
@@ -23,21 +30,23 @@ export default function Dashboard() {
                         <Categories />
                     </Grid.Column>
                     <Grid.Column width={12}>
-                        <Route exact path="/" component={JobAdvertList}/>
-                        <Route exact path="/candidates" component={CandidateList}/>
-                        <Route exact path="/employers" component={EmployerList}/>
+                        <Route exact path="/" component={JobAds}/>
+                        <Route exact path="/login" component={Login}/>
+                        <Route exact path="/register" component={Register}/>
+                        <Route exact path="/registerEmployer" component={RegisterEmployer}/>
+                        <Route exact path="/candidates" component={Candidates}/>
+                        <Route exact path="/cvs" component={Cvs}/>
+                        <Route exact path="/cvs/:id" component={CvDetail}/>
+                        <Route exact path="/employers" component={Employers}/>
                         <Route exact path="/employers/:id" component={EmployerDetail}/>
-                        <Route exact path="/cvs" component={CvList}/>
+                        <Route exact path="/jobads" component={JobAds}/>
+                        <Route exact path="/jobAdCreate" component={JobAdCreate}/>
                         <Route exact path="/jobads/:id" component={JobAdDetail}/>
-
-                        <Route exact path="/jobads" component={JobAdvertList}/>
-                        <Route exact path="/jobAdCreate" component={AddJobAdvertisementPage}/>
-                        <Route exact path="/jobads/:id" component={JobAdDetail}/>
-                        <Route exact path="/waitingads" component={WaitingJobAds}/>
-                        <Route exact path="/confirmads" component={JobAdsConfirmPage}/>
+                        <Route exact path="/jobAdFavorites" component={JobAdFavorites}/>
                     </Grid.Column>
                 </Grid>
             </Container>
-        </div>    
+            <Footer/>
+        </div>
     )
-}         
+}

@@ -1,36 +1,30 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import EmployerService from "../services/employerService";
+import EmployerService from "../services/EmployerService";
 import { Header, Table, Icon, Card, Button } from "semantic-ui-react";
-import JobAdvertService from '../services/jobAdvertService'
+import JobAdService from "../services/JobAdService";
 import { Link } from "react-router-dom";
+
 export default function EmployerDetail() {
-
-
   let { id } = useParams();
 
-  
-  const [employers, setEmployers] = useState({});
-  const [jobAdverts, setJobAdverts] = useState([]);
+  const [employer, setEmployer] = useState({});
+  const [jobAds, setJobAds] = useState([]);
 
-  useEffect(() => {  
+  useEffect(() => {
     let employerService = new EmployerService();
-    let jobAdvertService = new JobAdvertService();
+    let jobAdService = new JobAdService();
     employerService
-      .findById(id)
-      .then((result) => setEmployers(result.data.data)); 
-      
-    jobAdvertService
-      .getJobAdverts()
-      .then((result) => setJobAdverts(result.data.data));
-  },[id]); 
-
-
-  
+      .getEmployerById(id)
+      .then((result) => setEmployer(result.data.data));
+    jobAdService
+      .getActiveAdsByCompanyId(id)
+      .then((result) => setJobAds(result.data.data));
+  },[id]);
 
   return (
     <div>
-      <Table celled>
+      <Table celled color={"black"}>
         <Table.Header>
           <Table.Row>
             <Table.HeaderCell>İş veren</Table.HeaderCell>
@@ -39,7 +33,6 @@ export default function EmployerDetail() {
         </Table.Header>
 
         <Table.Body>
-          
           <Table.Row>
             <Table.Cell>
               <Header as="h4">
@@ -49,9 +42,7 @@ export default function EmployerDetail() {
                 </Header.Content>
               </Header>
             </Table.Cell>
-
-            <Table.Cell>{employers.companyName}</Table.Cell>
-
+            <Table.Cell>{employer.companyName}</Table.Cell>
           </Table.Row>
 
           <Table.Row>
@@ -63,7 +54,7 @@ export default function EmployerDetail() {
                 </Header.Content>
               </Header>
             </Table.Cell>
-            <Table.Cell>{employers.webAdress}</Table.Cell>
+            <Table.Cell>{employer.webSite}</Table.Cell>
           </Table.Row>
 
           <Table.Row>
@@ -75,7 +66,7 @@ export default function EmployerDetail() {
                 </Header.Content>
               </Header>
             </Table.Cell>
-            <Table.Cell>{employers.email}</Table.Cell>
+            <Table.Cell>{employer.email}</Table.Cell>
           </Table.Row>
 
           <Table.Row>
@@ -87,23 +78,52 @@ export default function EmployerDetail() {
                 </Header.Content>
               </Header>
             </Table.Cell>
-            <Table.Cell>{employers.phoneNumber}</Table.Cell>
+            <Table.Cell>{employer.phoneNumber}</Table.Cell>
           </Table.Row>
         </Table.Body>
+      </Table>
 
+      <Card fluid color={"black"}>
+        <Card.Content header="Bu Şirkete Ait İş İlanları" />
+        <Card.Content>
+          <Table color={"black"}>
+            <Table.Header>
+              <Table.Row>
+                <Table.HeaderCell>İş Pozisyonu</Table.HeaderCell>
+                <Table.HeaderCell>Şehir</Table.HeaderCell>
+                <Table.HeaderCell>Açık Pozisyon</Table.HeaderCell>
+                <Table.HeaderCell>Çalışma Yeri</Table.HeaderCell>
+                <Table.HeaderCell>Çalışma Zamanı</Table.HeaderCell>
+                <Table.HeaderCell>Detaylar</Table.HeaderCell>
+              </Table.Row>
+            </Table.Header>
 
-
-</Table>
-
-
-
-
-
-
-
-
-
-     
+            <Table.Body>
+              {jobAds.map((jobAd) => (
+                <Table.Row key={jobAd.id}>
+                  <Table.Cell>{jobAd.jobPosition?.name}</Table.Cell>
+                  <Table.Cell>{jobAd.city?.name}</Table.Cell>
+                  <Table.Cell>{jobAd.openPositions}</Table.Cell>
+                  <Table.Cell>{jobAd.workPlace?.name}</Table.Cell>
+                  <Table.Cell>{jobAd.workTime?.name}</Table.Cell>
+                  <Table.Cell>
+                    <Button animated as={Link} to={`/jobads/${jobAd.id}`}>
+                      <Button.Content visible>Detayları Gör</Button.Content>
+                      <Button.Content hidden>
+                        <Icon name="arrow right" />
+                      </Button.Content>
+                    </Button>
+                  </Table.Cell>
+                </Table.Row>
+              ))}
+            </Table.Body>
+          </Table>
+        </Card.Content>
+        <Card.Content extra>
+          <Icon name="list" />
+          {jobAds?.length} Adet İş ilanı mevcut
+        </Card.Content>
+      </Card>
     </div>
   );
 }
