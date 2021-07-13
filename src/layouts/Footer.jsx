@@ -30,6 +30,8 @@ export default function Footer() {
               <Grid.Column width={3}>
                 <List link inverted>
                   <List.Item as={Link} to={"/about"}>Hakkımızda</List.Item>
+                  <List.Item as={Link} to={"/policy"}>Gizlilik Sözleşmesi</List.Item>
+
                   <List.Item as="a">İletişim</List.Item>
                 </List>
               </Grid.Column>
@@ -40,7 +42,7 @@ export default function Footer() {
                   </Container>
                   <Header.Content>
                     <font color="#f5f5f5">
-                    HRMS Batu Akdoğan
+                    HRMS by Batu Akdoğan
                     </font>
                   </Header.Content>
                 </Header>

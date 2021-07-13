@@ -11,6 +11,7 @@ import { Route } from 'react-router';
 import JobAdDetail from '../pages/JobAdDetail';
 import EmployerDetail from '../pages/EmployerDetail';
 import Login from '../pages/Login';
+import PrivacePolicy from '../pages/PrivacePolicy';
 
 import AboutUs from '../pages/AboutUs'
 
@@ -46,7 +47,8 @@ export default function Dashboard() {
                         <Route exact path="/jobAdCreate" component={JobAdCreate}/>
                         <Route exact path="/jobads/:id" component={JobAdDetail}/>
                         <Route exact path="/jobAdFavorites" component={JobAdFavorites}/>
-                        <Route exact path="/about" component={AboutUs}/>   
+                        <Route exact path="/about" component={AboutUs}/> 
+                        <Route exact path="/policy"  component={PrivacePolicy}/>
                         
                     </Grid.Column>
                 </Grid>

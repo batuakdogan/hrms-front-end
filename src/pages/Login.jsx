@@ -1,4 +1,9 @@
 import React from "react";
+import IconButton from "@material-ui/core/IconButton";
+import InputLabel from "@material-ui/core/InputLabel";
+import Visibility from "@material-ui/icons/Visibility";
+import InputAdornment from "@material-ui/core/InputAdornment";
+import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import { Link, useHistory } from "react-router-dom";
 import { Button, Form, Header, Image, Message, Segment } from 'semantic-ui-react'
 import UserService from "../services/UserService";
@@ -10,6 +15,23 @@ import { toast } from "react-toastify";
 
 export default function Login() {
 
+
+  const [values, setValues] = React.useState({
+    password: "",
+    showPassword: false,
+  });
+
+  const handleClickShowPassword = () => {
+    setValues({ ...values, showPassword: !values.showPassword });
+  };
+  
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
+  
+  const handlePasswordChange = (prop) => (event) => {
+    setValues({ ...values, [prop]: event.target.value });
+  };
   const dispatch = useDispatch()
 
   const handleLogin=(user)=>{
@@ -75,12 +97,18 @@ export default function Login() {
             icon="lock"
             iconPosition="left"
             placeholder="Şifre"
-            type="password"
+            type={values.showPassword ? "text" : "password"}
             name="password"
             value={formik.values.password}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
           />
+          <IconButton
+              onClick={handleClickShowPassword}
+              onMouseDown={handleMouseDownPassword}
+            >
+              {values.showPassword ? <Visibility /> : <VisibilityOff />}
+            </IconButton>
           {
             formik.errors.password && formik.touched.password && (
               <div className={"ui pointing red basic label"}>

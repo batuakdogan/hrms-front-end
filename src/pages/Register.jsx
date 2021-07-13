@@ -1,4 +1,9 @@
 import React from "react";
+import IconButton from "@material-ui/core/IconButton";
+import InputLabel from "@material-ui/core/InputLabel";
+import Visibility from "@material-ui/icons/Visibility";
+import InputAdornment from "@material-ui/core/InputAdornment";
+import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import { Link, useHistory } from "react-router-dom";
 import * as Yup from "yup";
 import {
@@ -15,6 +20,26 @@ import { useFormik } from "formik";
 import { toast } from "react-toastify";
 
 export default function Register() {
+  
+
+  const [values, setValues] = React.useState({
+    password: "",
+    showPassword: false,
+  });
+
+  const handleClickShowPassword = () => {
+    setValues({ ...values, showPassword: !values.showPassword });
+  };
+  
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
+  
+  const handlePasswordChange = (prop) => (event) => {
+    setValues({ ...values, [prop]: event.target.value });
+  };
+
+  
 
   let candidateService = new CandidateService();
   const candidateRegisterSchema = Yup.object().shape({
@@ -59,7 +84,7 @@ export default function Register() {
   return (
     <div>
       <Header as="h2" color="teal" textAlign="center">
-        <Image src="https://hrms.ph/img/logo-large.png" /> Kayıt Ol
+        <Image src="https://cdn.pixabay.com/photo/2016/08/29/09/22/register-1627727_960_720.png" /> Kayıt Ol
       </Header>
       <Form size="large" onSubmit={formik.handleSubmit}>
         <Segment stacked>
@@ -186,19 +211,27 @@ export default function Register() {
                   </div>
                 )}
               </div>
-              <div style={{marginTop:"1em"}}>
+              <div style={{marginTop:"1em"}} >
               <label><b>Şifre</b></label>
               <Form.Input
                 fluid
                 icon="lock"
                 iconPosition="left"
                 placeholder="Şifre"
-                type="password"
+                type={values.showPassword ? "text" : "password"}
+
                 value={formik.values.password}
+                
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 name="password"
               />
+              <IconButton
+              onClick={handleClickShowPassword}
+              onMouseDown={handleMouseDownPassword}
+            >
+              {values.showPassword ? <Visibility /> : <VisibilityOff />}
+            </IconButton>
                {formik.errors.password && formik.touched.password && (
                   <div className={"ui pointing red basic label"}>
                     {formik.errors.password}
@@ -218,6 +251,7 @@ export default function Register() {
                 onBlur={formik.handleBlur}
                 name="rePassword"
               />
+              
               {formik.errors.rePassword && formik.touched.rePassword && (
                   <div className={"ui pointing red basic label"}>
                     {formik.errors.rePassword}
