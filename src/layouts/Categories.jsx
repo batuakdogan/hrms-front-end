@@ -26,7 +26,7 @@ export default function Categories() {
 
         <Menu.Item as={Link} to={"/cvs"} active={location==="/cvs"}>
           <Icon name="wordpress forms" />
-          Cvler
+          <p>CV'ler</p>
         </Menu.Item>
       </Menu>
     </div>

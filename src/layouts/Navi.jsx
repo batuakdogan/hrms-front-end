@@ -20,7 +20,7 @@ export default function Navi() {
           <Icon name="home" />Ana Sayfa
           </Menu.Item>
           <Menu.Item name="İş ilanları" as={Link} to={"/jobads"} icon="briefcase"/>
-          <Menu.Item name="Cvler" as={Link} to={"/cvs"} icon="table" />
+          <Menu.Item name='Cvler' as={Link} to={"/cvs"} icon="table" />
 
           <Menu.Menu position="right" style={{ margin: '0.5em' }}>
             {authItem[0].loggedIn && authItem[0].user.userType===2 &&  <Button primary as={Link} to={"/jobAdCreate"} icon="add">

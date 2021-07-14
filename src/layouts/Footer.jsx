@@ -29,25 +29,30 @@ export default function Footer() {
             <Grid.Row>
               <Grid.Column width={3}>
                 <List link inverted>
-                  <List.Item as={Link} to={"/about"}>Hakkımızda</List.Item>
-                  <List.Item as={Link} to={"/policy"}>Gizlilik Sözleşmesi</List.Item>
+                  <List.Item as={Link} to={"/about"} ><Icon name="file alternate outline" />Hakkımızda</List.Item>
+                  <List.Item as={Link} to={"/policy"}><Icon name="clipboard outline" />Gizlilik Sözleşmesi</List.Item>
 
-                  <List.Item as="a">İletişim</List.Item>
+                  <List.Item as="a"><Icon name="phone square" />İletişim</List.Item>
                 </List>
               </Grid.Column>
               <Grid.Column width={13}>
                 <Header style={{ marginTop: "-2.2em" }} as="h2">
-                  <Container>
-                    <Icon name="users" color="grey" size="small" />
-                  </Container>
-                  <Header.Content>
-                    <font color="#f5f5f5">
-                    HRMS by Batu Akdoğan
-                    </font>
-                  </Header.Content>
+                  <div className="policy">
+                    <Container>
+                    </Container>
+                  </div>
+                  <div className="hrms">
+                    <Header.Content>
+                      <font color="#f5f5f5">
+
+                        HRMS by Batu Akdoğan
+                      </font>
+
+                    </Header.Content>
+                  </div>
                 </Header>
                 <Container>
-                  © 2021 Human Resources Management System
+                  <Icon name="copyright outline" /> 2021 Human Resources Management System
                 </Container>
               </Grid.Column>
             </Grid.Row>

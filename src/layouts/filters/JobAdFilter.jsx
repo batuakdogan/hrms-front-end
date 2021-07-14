@@ -5,7 +5,7 @@ import WorkPlaceService from '../../services/WorkPlaceService';
 import WorkTimeService from '../../services/WorkTimeService';
 import { Label, Dropdown, Segment, Checkbox, Button } from 'semantic-ui-react'
 
-export default function JobAdFilter({ clickEvent}) {
+export default function JobAdFilter({ clickEvent }) {
 
     const [cities, setCities] = useState([]);
     const [jobPositions, setJobPositions] = useState([]);
@@ -24,7 +24,7 @@ export default function JobAdFilter({ clickEvent}) {
 
         let workTimeService = new WorkTimeService();
         workTimeService.getWorkTimes().then(result => setWorkTimes(result.data.data))
-    },[])
+    }, [])
 
     const [cityIndex, setCityIndex] = useState([])
     const handleChangeCity = (e, { value }) => {
@@ -32,36 +32,36 @@ export default function JobAdFilter({ clickEvent}) {
     }
 
     const [jobPositionIndex] = useState([])
-    const handleChangeJobPosition = (e, { value, checked}) => {
-        if(checked){
+    const handleChangeJobPosition = (e, { value, checked }) => {
+        if (checked) {
             jobPositionIndex.push(value)
-        }else {
+        } else {
             let index = jobPositionIndex.indexOf(value)
-            if(index > -1) {
+            if (index > -1) {
                 jobPositionIndex.splice(index, 1)
             }
         }
     }
 
     const [workPlaceIndex] = useState([])
-    const handleChangeWorkPlace = (e, { value, checked}) => {
-        if(checked){
+    const handleChangeWorkPlace = (e, { value, checked }) => {
+        if (checked) {
             workPlaceIndex.push(value)
-        }else {
+        } else {
             let index = workPlaceIndex.indexOf(value)
-            if(index > -1) {
+            if (index > -1) {
                 workPlaceIndex.splice(index, 1)
             }
         }
     }
 
     const [workTimeIndex] = useState([])
-    const handleChangeWorkTime = (e, { value, checked}) => {
-        if(checked){
+    const handleChangeWorkTime = (e, { value, checked }) => {
+        if (checked) {
             workTimeIndex.push(value)
-        }else {
+        } else {
             let index = workTimeIndex.indexOf(value)
-            if(index > -1) {
+            if (index > -1) {
                 workTimeIndex.splice(index, 1)
             }
         }
@@ -97,6 +97,21 @@ export default function JobAdFilter({ clickEvent}) {
                     ))
                 }
             </Segment>
+
+            <Segment color="black" raised>
+                <Label attached="top" size="large">Çalışma Süresi</Label>
+                {
+                    workTimes.map(workTime => (
+                        <Checkbox
+                            key={workTime.id}
+                            label={workTime.name}
+                            onChange={handleChangeWorkTime}
+                            value={workTime.id}
+                        />
+                    ))
+                }
+
+            </Segment>
             <Segment color="black" raised>
                 <Label attached="top" size="large">Çalışma Yeri</Label>
                 {
@@ -110,24 +125,11 @@ export default function JobAdFilter({ clickEvent}) {
                     ))
                 }
             </Segment>
-            <Segment color="black" raised>
-                <Label attached="top" size="large">Çalışma Süresi</Label>
-                {
-                    workTimes.map(workTime => (
-                        <Checkbox
-                            key={workTime.id}
-                            label={workTime.name}
-                            onChange={handleChangeWorkTime}
-                            value={workTime.id}
-                        />
-                    ))
-                }
-            </Segment>
             <Button
                 type="button"
                 fluid
                 color="green"
-                onClick={() => clickEvent({ cityId: cityIndex, jobPositionId: jobPositionIndex, workPlaceId: workPlaceIndex, workTimeId: workTimeIndex})}
+                onClick={() => clickEvent({ cityId: cityIndex, jobPositionId: jobPositionIndex, workPlaceId: workPlaceIndex, workTimeId: workTimeIndex })}
             >
                 Filtrele
             </Button>

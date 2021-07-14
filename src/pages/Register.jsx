@@ -4,6 +4,7 @@ import InputLabel from "@material-ui/core/InputLabel";
 import Visibility from "@material-ui/icons/Visibility";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
+import {Icon} from 'semantic-ui-react'
 import { Link, useHistory } from "react-router-dom";
 import * as Yup from "yup";
 import {
@@ -84,7 +85,7 @@ export default function Register() {
   return (
     <div>
       <Header as="h2" color="teal" textAlign="center">
-        <Image src="https://cdn.pixabay.com/photo/2016/08/29/09/22/register-1627727_960_720.png" /> Kayıt Ol
+        <Icon name="registered" /> Kayıt Ol
       </Header>
       <Form size="large" onSubmit={formik.handleSubmit}>
         <Segment stacked>

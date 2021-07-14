@@ -5,7 +5,7 @@ import Visibility from "@material-ui/icons/Visibility";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import { Link, useHistory } from "react-router-dom";
-import { Button, Form, Header, Image, Message, Segment } from 'semantic-ui-react'
+import { Button, Form, Header, Image, Message, Segment ,Icon} from 'semantic-ui-react'
 import UserService from "../services/UserService";
 import * as Yup from "yup";
 import { useFormik } from "formik";
@@ -63,10 +63,11 @@ export default function Login() {
   })
 
   return (
-    <div>
+    <div className="login">
       <Header as="h2" color="teal" textAlign="center">
-        <Image src="https://hrms.ph/img/logo-large.png" /> Giriş Yap
+     <Icon name="sign-in"/>  Giriş Yap
       </Header>
+      <br/>
       <Form size="large" onSubmit={formik.handleSubmit}>
         <Segment stacked>
           <div>
@@ -124,7 +125,7 @@ export default function Login() {
         </Segment>
       </Form>
       <Message info>
-        Kayıtlı değilmisin? <b><Link to={"/register"}>Şimdi Kaydol</Link></b>
+        Kayıtlı değil misin? <b><Link to={"/register"}>Şimdi Kaydol</Link></b>
       </Message>
     </div>
   );
