@@ -2,7 +2,7 @@ import React from 'react'
 import CvService from '../../../services/CvService'
 import * as Yup from "yup";
 import { useFormik } from 'formik';
-import { Button, Form } from "semantic-ui-react";
+import { Button, Form, Icon} from "semantic-ui-react";
 import { toast } from 'react-toastify';
 
 export default function UpdateBiography({cvId,updateCvValues,curentBiography}) {

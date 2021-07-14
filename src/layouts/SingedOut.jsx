@@ -1,13 +1,14 @@
 import React from 'react'
 import { Link } from "react-router-dom";
-import { Button } from 'semantic-ui-react';
+import { Button,Icon } from 'semantic-ui-react';
 
 export default function SingedOut() {
     return (
-        <div>
+        <div className="">
             <Button.Group>
+
               <Button as={Link} to={"/login"}>Giriş yap</Button>
-              <Button.Or />
+              <Icon name="circle outline"/>
               <Button positive as={Link} to={"/register"}>Kaydol</Button>
             </Button.Group>
         </div>
