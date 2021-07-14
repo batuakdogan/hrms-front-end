@@ -4,6 +4,13 @@ Which Technologies Used?
 
 
 
+![Ekran görüntüsü 2021-07-14 132249](https://user-images.githubusercontent.com/77547523/125606901-fc388143-aa4c-4fa7-a42f-0a6529837b5c.png)
+![Ekran görüntüsü 2021-07-14 132316](https://user-images.githubusercontent.com/77547523/125606906-bd3d9d6c-b919-415c-9808-0ef4fb85750f.png)
+![Ekran görüntüsü 2021-07-14 132347](https://user-images.githubusercontent.com/77547523/125606909-e9458d70-a4e7-42eb-aa55-1b38efbad3fe.png)
+![Ekran görüntüsü 2021-07-14 132403](https://user-images.githubusercontent.com/77547523/125606911-a1ecd4e5-f84f-447d-872a-1bbd5c6d974b.png)
+![Ekran görüntüsü 2021-07-14 132424](https://user-images.githubusercontent.com/77547523/125606915-02841229-0f8c-41c9-ab87-7db8849b1378.png)
+
+
 
 
 ![diagram](https://user-images.githubusercontent.com/77547523/121185854-29043a00-c86f-11eb-8396-58df8b8a7920.png)
