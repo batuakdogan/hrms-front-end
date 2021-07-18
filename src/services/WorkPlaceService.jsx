@@ -2,6 +2,6 @@ import axios from "axios";
 
 export default class WorkPlaceService{
     getWorkPlaces(){
-        return axios.get("https://kodlamaio-hrms.herokuapp.com/workPlace/getAll")
+        return axios.get("http://localhost:8080/workPlace/getAll")
     }
 }

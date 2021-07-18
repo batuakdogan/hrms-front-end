@@ -1,5 +1,6 @@
 import { useFormik } from "formik";
 import React from "react";
+import {Icon} from 'semantic-ui-react'
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
 import {
@@ -63,7 +64,7 @@ export default function RegisterEmployer() {
   return (
     <div>
       <Header as="h2" color="teal" textAlign="center">
-        <Image src="https://hrms.ph/img/logo-large.png" /> İşveren Olarak Kayıt Ol
+      <Icon name="registered" /> İşveren Olarak Kayıt Ol
       </Header>
       <Form size="large" onSubmit={formik.handleSubmit}>
         <Segment stacked>

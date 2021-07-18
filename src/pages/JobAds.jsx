@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
+import CodeConfirm from '../pages/CodeConfirm'
 import {
   Table,
   Button,
@@ -13,6 +14,7 @@ import JobAdFilter from '../layouts/filters/JobAdFilter';
 import { useSelector } from 'react-redux';
 import FavoriteService from '../services/FavoriteService';
 import { toast } from 'react-toastify';
+import JobAdsConfirmPage from './JobAdsConfirmPage';
 
 export default function JobAds() {
 
@@ -182,6 +184,7 @@ export default function JobAds() {
       </div>
       </Card.Content>
       </Card>
+
 
 
     </div>

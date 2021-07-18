@@ -5,10 +5,10 @@ export default class CandidateService{
         return axios.get("http://localhost:8080/api/candidates/getall");
     }
     registerCandidate(values){
-        return axios.post("https://kodlamaio-hrms.herokuapp.com/api/candidates/add",values)
+        return axios.post("http://localhost:8080/api/candidates/add",values)
     }
 
     getMailVerifyedCandidates(){
-        return axios.get("https://kodlamaio-hrms.herokuapp.com/api/candidates/getMailVerifyTrue")
+        return axios.get("http://localhost:8080/api/candidates/getMailVerifyTrue")
     }
 }
