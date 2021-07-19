@@ -17,4 +17,8 @@
   .sag{
     margin-left: 5em;
   }
+  .ui.color1.button {
+    background-color: #a31e1e;
+    color: #a31e1e;
+  }
   

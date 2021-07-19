@@ -1,4 +1,9 @@
 import { useFormik } from "formik";
+import IconButton from "@material-ui/core/IconButton";
+import InputLabel from "@material-ui/core/InputLabel";
+import Visibility from "@material-ui/icons/Visibility";
+import InputAdornment from "@material-ui/core/InputAdornment";
+import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import React from "react";
 import {Icon} from 'semantic-ui-react'
 import { useHistory } from "react-router-dom";
@@ -16,6 +21,10 @@ import {
 import EmployerService from "../services/EmployerService";
 
 export default function RegisterEmployer() {
+
+
+
+
 
   let employerService = new EmployerService();
   const employerRegisterSchema = Yup.object().shape({
@@ -60,6 +69,24 @@ export default function RegisterEmployer() {
       })
     }
   });
+
+
+  const [values, setValues] = React.useState({
+    password: "",
+    showPassword: false,
+  });
+
+  const handleClickShowPassword = () => {
+    setValues({ ...values, showPassword: !values.showPassword });
+  };
+  
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
+  
+  const handlePasswordChange = (prop) => (event) => {
+    setValues({ ...values, [prop]: event.target.value });
+  };
 
   return (
     <div>
@@ -141,12 +168,19 @@ export default function RegisterEmployer() {
                 icon="lock"
                 iconPosition="left"
                 placeholder="Şifre"
-                type="password"
+                type={values.showPassword ? "text" : "password"}
                 name="password"
                 value={formik.values.password}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
               />
+              <IconButton
+              onClick={handleClickShowPassword}
+              onMouseDown={handleMouseDownPassword}
+            >
+              {values.showPassword ? <Visibility /> : <VisibilityOff />}
+            </IconButton>
+              
               {
                 formik.errors.password && formik.touched.password && (
                   <div className={"ui pointing red basic label"}>
@@ -204,15 +238,27 @@ export default function RegisterEmployer() {
                 icon="lock"
                 iconPosition="left"
                 placeholder="Şifre Tekrar"
-                type="password"
+                type={values.showPassword ? "text" : "password"}
                 name="rePassword"
                 value={formik.values.rePassword}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
               />
+              <IconButton
+              onClick={handleClickShowPassword}
+              onMouseDown={handleMouseDownPassword}
+            >
+              {values.showPassword ? <Visibility /> : <VisibilityOff />}
+            </IconButton>
               {formik.errors.rePassword && formik.touched.rePassword && (
                   <div className={"ui pointing red basic label"}>
                     {formik.errors.rePassword}
+                  </div>
+                )}
+                
+               {formik.errors.password && formik.touched.password && (
+                  <div className={"ui pointing red basic label"}>
+                    {formik.errors.password}
                   </div>
                 )}
               </div>
@@ -231,3 +277,4 @@ export default function RegisterEmployer() {
     </div>
   );
 }
+ 
