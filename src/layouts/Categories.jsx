@@ -15,7 +15,7 @@ export default function Categories() {
         </Menu.Item>
 
         <Menu.Item as={Link} to={"/employers"} active={location==="/employers"}>
-            <Icon name="factory" />
+            <Icon name="building" />
             İş Verenler       
         </Menu.Item>
 

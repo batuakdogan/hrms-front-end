@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import CvService from "../services/CvService";
+import EmailIcon from '@material-ui/icons/Email';
 import { Card, Image, Table, Header, Button, Icon } from "semantic-ui-react";
 import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
@@ -75,7 +76,7 @@ export default function CvDetail() {
                 key={image?.id}
               />
             ))}
-            {myProfile && <Popup trigger={<button className="ui button">Resim Yükle &nbsp;   <Icon name="cloud upload"/> </button>} modal>
+            {myProfile && <Popup trigger={<button className="ui button">Resim Yükle &nbsp;   <Icon name="upload"/> </button>} modal>
                             <UpdateImage cvId={cv.id} updateCvValues={updateCvValues} />
                           </Popup>}
 
@@ -125,7 +126,7 @@ export default function CvDetail() {
                   <Table.Row>
                     <Table.Cell>
                       <Header as="h4" image>
-                        <Header.Content>Email</Header.Content>
+                       <Header.Content>Email</Header.Content> 
                       </Header>
                     </Table.Cell>
                     <Table.Cell>{cv.candidate?.email}</Table.Cell>

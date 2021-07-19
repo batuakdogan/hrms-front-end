@@ -2,30 +2,30 @@ import axios from "axios";
 
 export default class CvService{
     getCvs(){
-        return axios.get("https://kodlamaio-hrms.herokuapp.com/api/cv/getall");
+        return axios.get("http://localhost:8080/api/cv/getall");
     }
 
     getByCandidateId(id){
-        return axios.get("https://kodlamaio-hrms.herokuapp.com/api/cv/getByCandidateId?candidateId="+id)
+        return axios.get("http://localhost:8080/api/cv/getByCandidateId?candidateId="+id)
     }
 
     updateGithub(cvId,githubLink){
-        return axios.put(`https://kodlamaio-hrms.herokuapp.com/api/cv/updateGithub?cvId=${cvId}&githublink=${githubLink}`)
+        return axios.put(`http://localhost:8080/api/cv/updateGithub?cvId=${cvId}&githublink=${githubLink}`)
     }
 
     updateLinkedin(cvId,linkedin){
-        return axios.put(`https://kodlamaio-hrms.herokuapp.com/api/cv/updateLinkedin?cvId=${cvId}&linkedinlink=${linkedin}`)
+        return axios.put(`http://localhost:8080/api/cv/updateLinkedin?cvId=${cvId}&linkedinlink=${linkedin}`)
     }
 
     updateBiography(cvId,biography){
-        return axios.put(`https://kodlamaio-hrms.herokuapp.com/api/cv/updateBiography?biography=${biography}&cvId=${cvId}`)
+        return axios.put(`http://localhost:8080/api/cv/updateBiography?biography=${biography}&cvId=${cvId}`)
     }
 
     deleteGithub(cvId){
-        return axios.delete(`https://kodlamaio-hrms.herokuapp.com/api/cv/deleteGithub?cvId=${cvId}`)
+        return axios.delete(`http://localhost:8080/api/cv/deleteGithub?cvId=${cvId}`)
     }
 
     deleteLinkedin(cvId){
-        return axios.delete(`https://kodlamaio-hrms.herokuapp.com/api/cv/deleteLinkedin?cvId=${cvId}`)
+        return axios.delete(`http://localhost:8080/api/cv/deleteLinkedin?cvId=${cvId}`)
     }
 }

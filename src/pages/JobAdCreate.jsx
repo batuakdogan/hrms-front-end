@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { Button, Dropdown, Input, TextArea, Card, Form, Grid } from "semantic-ui-react";
+import { Button, Dropdown, Input, TextArea, Card, Form, Grid,Message } from "semantic-ui-react";
 import CityService from "../services/CityService";
 import JobPositionService from "../services/JobPositionService";
 import WorkTimeService from "../services/WorkTimeService";
@@ -307,9 +307,14 @@ export default function JobAdCreate() {
                 type="submit"
                 style={{ marginLeft: "20px" }}
               />
+              
       </Form>
+      
       </Card.Content>
       </Card>}
+      <Message warning color="red">
+        İş ilanları, personel onayladıktan sonra aktif hale gelmektedir!
+      </Message>
     </div>
   );
 }
