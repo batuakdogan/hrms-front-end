@@ -1,7 +1,0 @@
-import axios from "axios";
-
-export default class WorkTimeService{
-    getWorkTimes(){
-        return axios.get("http://localhost:8080/workTime/getAll")
-    }
-}
