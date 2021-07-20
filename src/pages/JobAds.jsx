@@ -97,7 +97,7 @@ export default function JobAds() {
       <Card fluid>
         <div style={{marginTop:"1em",marginLeft:"1em"}}>
         <Card.Header as="h2">
-          <Icon name="bullhorn" />
+          <Icon name="tasks" />
           İş İlanları
         </Card.Header>
         </div>

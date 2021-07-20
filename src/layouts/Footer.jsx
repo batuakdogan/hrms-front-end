@@ -1,4 +1,5 @@
 import React from "react";
+import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
 import { Link } from "react-router-dom";
 import {
   Container,
@@ -31,6 +32,7 @@ export default function Footer() {
                 <List link inverted>
                   <List.Item as={Link} to={"/about"} ><Icon name="file alternate outline" />Hakkımızda</List.Item>
                   <List.Item as={Link} to={"/policy"}><Icon name="clipboard outline" />Gizlilik Sözleşmesi</List.Item>
+              
 
                   <List.Item as="a"><Icon name="phone square" />İletişim</List.Item>
                 </List>
@@ -48,11 +50,11 @@ export default function Footer() {
                         HRMS by Batu Akdoğan
                       </font>
 
-                    </Header.Content>
+                    </Header.Content> 
                   </div>
                 </Header>
                 <Container>
-                  <Icon name="copyright outline" /> 2021 Human Resources Management System
+                  <Icon name="copyright outline" /> 2021 Human Resources Management System 
                 </Container>
               </Grid.Column>
             </Grid.Row>
