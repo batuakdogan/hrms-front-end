@@ -22,6 +22,8 @@ import RegisterEmployer from '../pages/RegisterEmployer';
 import JobAdFavorites from '../pages/JobAdFavorites';
 import Footer from './Footer';
 import { ToastContainer } from "react-toastify"; 
+import JobAdsConfirmPage from '../pages/JobAdsConfirmPage';
+import WaitingJobAds from '../pages/WaitingJobAds';
 
 export default function Dashboard() {
     return (
@@ -49,6 +51,11 @@ export default function Dashboard() {
                         <Route exact path="/jobAdFavorites" component={JobAdFavorites}/>
                         <Route exact path="/about" component={AboutUs}/> 
                         <Route exact path="/policy"  component={PrivacePolicy}/>
+                        <Route exact path="/confirmAds"  component={JobAdsConfirmPage}/>
+                        <Route exact path="/waitingAds"  component={WaitingJobAds}/>
+
+
+
                         
                     </Grid.Column>
                 </Grid>

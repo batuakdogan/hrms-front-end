@@ -28,5 +28,9 @@ export default class JobAdService{
     setActiveJobAds(id){
      return axios.post("http://localhost:8080/api/jobAd/setActive?jobAdId="+id & "staffId="+id)
     }
+
+    getWaitingJobAds(){
+        return axios.get("http://localhost:8080/api/jobAd/getWaitingJobAds")
+    }
     
 }

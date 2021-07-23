@@ -10,13 +10,14 @@ import {
   Card
 } from "semantic-ui-react";
 import JobAdService from '../services/JobAdService';
+import WaitingJobAds from '../pages/WaitingJobAds'
 import JobAdFilter from '../layouts/filters/JobAdFilter';
 import { useSelector } from 'react-redux';
 import FavoriteService from '../services/FavoriteService';
 import { toast } from 'react-toastify';
 import JobAdsConfirmPage from './JobAdsConfirmPage';
 
-export default function JobAds() {
+export default function JobAds() { 
 
   let [jobAds, setJobAds] = useState([]);
   let [favorites, setFavorites] = useState([]);
@@ -97,7 +98,7 @@ export default function JobAds() {
       <Card fluid>
         <div style={{marginTop:"1em",marginLeft:"1em"}}>
         <Card.Header as="h2">
-          <Icon name="tasks" />
+          <Icon name="tasks" color="blue"/>
           İş İlanları
         </Card.Header>
         </div>
@@ -184,6 +185,7 @@ export default function JobAds() {
       </div>
       </Card.Content>
       </Card>
+
 
 
 

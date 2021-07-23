@@ -91,8 +91,8 @@ export default function CvDetail() {
               <Table celled color={"black"}>
                 <Table.Header>
                   <Table.Row>
-                    <Table.HeaderCell>Kullanıcı</Table.HeaderCell>
-                    <Table.HeaderCell>Bilgiler</Table.HeaderCell>
+                    <Table.HeaderCell><font color="FF5555">Kullanıcı</font></Table.HeaderCell>
+                    <Table.HeaderCell> <font color="FF5555">Bilgiler</font></Table.HeaderCell>
                   </Table.Row>
                 </Table.Header>
 
@@ -191,7 +191,7 @@ export default function CvDetail() {
       <Card fluid color={"black"}>
         <Card.Content>
           <Card.Header>
-            Biyografi 
+          <font color="E40000">  Biyografi </font>
             {myProfile && <Popup trigger={<button className="ui button" class="ui green button" style={{marginLeft:"1em"}}> Güncelle  &nbsp;   <Icon name="edit outline"/> </button>} modal>
                             <UpdateBiography cvId={cv.id} updateCvValues={updateCvValues} curentBiography={cv.biography}/>
                           </Popup>}
@@ -203,7 +203,7 @@ export default function CvDetail() {
       <Card fluid color={"black"}>
         <Card.Content>
           <Card.Header>
-          Okuduğu Okullar
+          <font color="E40000">   Okuduğu Okullar</font>
           {myProfile && <Popup trigger={<button className="ui button" class="ui green button" style={{marginLeft:"1em"}}> Güncelle &nbsp;   <Icon name="edit outline"/> </button>} modal> 
                             <UpdateSchools cvId={cv.id} updateCvValues={updateCvValues}/>
                           </Popup>}
@@ -234,7 +234,7 @@ export default function CvDetail() {
       <Card fluid>
         <Card.Content>
           <Card.Header>
-            Tecrübeler
+          <font color="E40000">Tecrübeler</font>
             {myProfile && <Popup trigger={<button className="ui button" class="ui green button" style={{marginLeft:"1em"}}> Güncelle  &nbsp;   <Icon name="edit outline"/> </button>} modal>
                             <UpdateExperiance cvId={cv.id} updateCvValues={updateCvValues} />
                           </Popup>}
@@ -245,7 +245,7 @@ export default function CvDetail() {
               <Table.Row>
                 <Table.HeaderCell>Şirket Adı</Table.HeaderCell>
                 <Table.HeaderCell>Pozisyon</Table.HeaderCell>
-                <Table.HeaderCell>Başalngıç Tarihi</Table.HeaderCell>
+                <Table.HeaderCell>Başlangıç Tarihi</Table.HeaderCell>
                 <Table.HeaderCell>Bitiş Tarihi</Table.HeaderCell>
               </Table.Row>
             </Table.Header>
@@ -265,7 +265,7 @@ export default function CvDetail() {
       <Card fluid color={"black"}>
         <Card.Content>
           <Card.Header>
-            Yabancı Diller
+           <font color="E40000"> Yabancı Diller </font>
             {myProfile && <Popup trigger={<button className="ui button" class="ui green button" style={{marginLeft:"1em"}}> Güncelle  &nbsp;   <Icon name="edit outline"/></button>} modal>
                             <UpdateLanguage cvId={cv.id} updateCvValues={updateCvValues}/>
                           </Popup>}
@@ -293,7 +293,7 @@ export default function CvDetail() {
       <Card fluid color={"black"}>
         <Card.Content>
           <Card.Header>
-          Yazılım Teknolojileri
+          <font color="E40000">  Yazılım Teknolojileri</font>
           {myProfile && <Popup trigger={<button className="ui button" class="ui green button" style={{marginLeft:"1em"}}> Güncelle  &nbsp;   <Icon name="edit outline"/> </button>} modal>
                             <UpdateTechnology cvId={cv.id} updateCvValues={updateCvValues} />
                           </Popup>}

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import JobAds from '../pages/JobAds'
 import { withRouter } from "react-router";
 
 import { useHistory, useParams } from 'react-router-dom'
@@ -8,6 +9,9 @@ import { Form, Input, TextArea, Button, Select } from 'semantic-ui-react'
 
 
 class JobAdsConfirmPage extends Component {
+
+
+  
     constructor(props) {
         super(props)
 
@@ -45,6 +49,13 @@ class JobAdsConfirmPage extends Component {
 
         return (
             <div>
+
+
+
+
+
+
+
                 <Form onSubmit={this.submitHandler}>
                     <Form.Field
                         control={Input}

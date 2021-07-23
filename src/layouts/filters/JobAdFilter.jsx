@@ -3,7 +3,7 @@ import CityService from '../../services/CityService';
 import JobPositionService from '../../services/JobPositionService';
 import WorkPlaceService from '../../services/WorkPlaceService';
 import WorkTimeService from '../../services/WorkTimeService';
-import { Label, Dropdown, Segment, Checkbox, Button } from 'semantic-ui-react'
+import { Label, Dropdown, Segment, Checkbox, Button,Icon } from 'semantic-ui-react'
 
 export default function JobAdFilter({ clickEvent }) {
 
@@ -80,9 +80,12 @@ export default function JobAdFilter({ clickEvent }) {
                     options={cities.map((city, index) => {
                         return { text: city.name, key: city.index, value: city.id }
                     })}
+                    
                     onChange={handleChangeCity}
                     value={cityIndex}
+                    
                 />
+                
             </Segment>
             <Segment color="black" raised>
                 <Label attached="top" size="large">İş Pozisyonu</Label>

@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import DoneIcon from '@material-ui/icons/Done';
 import { Link } from "react-router-dom";
 import { Container,Button, Menu, Icon } from 'semantic-ui-react';
 import "../App.css";
@@ -19,8 +20,8 @@ export default function Navi() {
           <Menu.Item name="Ana Sayfa" as={Link} to={"/"}>
           <Icon name="home" />Ana Sayfa
           </Menu.Item>
+          <Menu.Item name='Cvler' as={Link} to={"/cvs"} icon="wordpress forms" />
           <Menu.Item name="İş ilanları" as={Link} to={"/jobads"} icon="briefcase"/>
-          <Menu.Item name='Cvler' as={Link} to={"/cvs"} icon="address card" />
 
           <Menu.Menu position="right" style={{ margin: '0.1em' }}>
             {authItem[0].loggedIn && authItem[0].user.userType===2 &&  <Button primary as={Link} to={"/jobAdCreate"} icon="add">
@@ -30,9 +31,16 @@ export default function Navi() {
               <Icon name='heart' />
               Favori İlanlar
             </Button>}
-            
+            {authItem[0].loggedIn && authItem[0].user.userType===3 &&  <Button color="red" as={Link} to={`/waitingAds`}>
+              <Icon name="check"/>
+              İlan Onayla
+            </Button>}
             {authItem[0].loggedIn?<SingedIn/>:<SingedOut/>}
           </Menu.Menu>
+
+
+
+
         </Container>
       </Menu>
     </div>

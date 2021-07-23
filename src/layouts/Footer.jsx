@@ -54,7 +54,7 @@ export default function Footer() {
                   </div>
                 </Header>
                 <Container>
-                  <Icon name="copyright outline" /> 2021 Human Resources Management System 
+                  <Icon name="copyright outline" /> Human Resources Management System 
                 </Container>
               </Grid.Column>
             </Grid.Row>
