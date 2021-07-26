@@ -1,11 +1,14 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useHistory } from 'react-router-dom'
+import WaitingJobAds from '../pages/WaitingJobAds'
+import WaitingEmployerUpdate from '../pages/WaitingEmployerUpdate'
 import { Dropdown, Menu, Icon } from 'semantic-ui-react'
 import { userLogout } from "../store/actions/authActions"
 import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
 import EmployerUpdate from '../pages/popups/employerUpdate/EmployerUpdate'
+import StaffUpdate from '../pages/popups/staffUpdate/StaffUpdate'
 
 export default function SingedIn() {
 
@@ -26,6 +29,10 @@ export default function SingedIn() {
                     <Dropdown.Menu>
                         {authItem[0].user.userType===1 &&<Dropdown.Item as={Link} to={`/cvs/${authItem[0].user.id}`}><Icon name='cloud upload' />Cv ni Güncelle</Dropdown.Item>}
                         {authItem[0].user.userType===2 &&<Dropdown.Item><Popup trigger={<p><i className="cloud upload icon"></i>Şirket bilgilerini güncelle</p>} modal><EmployerUpdate/></Popup></Dropdown.Item>}
+                        {authItem[0].user.userType===3 &&<Dropdown.Item><Popup trigger={<p><i className="cloud upload icon"></i>Personel bilgilerini güncelle</p>} modal><StaffUpdate/></Popup></Dropdown.Item>}
+
+
+
                         <Dropdown.Item onClick={()=>handleLogout(authItem[0].user)}><Icon name='sign-out' /> Çıkış yap</Dropdown.Item>
                     </Dropdown.Menu>
                 </Dropdown>

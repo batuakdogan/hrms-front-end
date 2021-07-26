@@ -23,7 +23,7 @@ export default function EmployerUpdate() {
   const employerUpdateShema= Yup.object().shape({
     companyName: Yup.string().required("Bu alan boş birakılamaz").min(2,"En az 2 karakter uzunlugunda olmalıdır"),
     email: Yup.string().required("Bu alan zorunludur").email("Hatalı email girdiniz"),
-    phoneNumber: Yup.string().required("Bu alan zorunludur").min(11,"Telegon numarası 11 haneli olmalıdır").max(11,"Telegon numarası 11 haneli olmalıdır"),
+    phoneNumber: Yup.string().required("Bu alan zorunludur").min(11,"Telefon numarası 11 haneli olmalıdır").max(11,"Telefon numarası 11 haneli olmalıdır"),
     webSite: Yup.string().required("Bu alan zorunludur")
   })
 

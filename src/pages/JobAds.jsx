@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
+import WaitingEmployerUpdate from '../pages/WaitingEmployerUpdate'
 import CodeConfirm from '../pages/CodeConfirm'
 import {
   Table,
@@ -185,6 +186,7 @@ export default function JobAds() {
       </div>
       </Card.Content>
       </Card>
+
 
 
 

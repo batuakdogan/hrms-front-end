@@ -24,6 +24,8 @@ import Footer from './Footer';
 import { ToastContainer } from "react-toastify"; 
 import JobAdsConfirmPage from '../pages/JobAdsConfirmPage';
 import WaitingJobAds from '../pages/WaitingJobAds';
+import WaitingEmployerUpdate from '../pages/WaitingEmployerUpdate';
+import EmployerUpdateConfirmPage from '../pages/EmployerUpdateConfirmPage';
 
 export default function Dashboard() {
     return (
@@ -53,6 +55,9 @@ export default function Dashboard() {
                         <Route exact path="/policy"  component={PrivacePolicy}/>
                         <Route exact path="/confirmAds"  component={JobAdsConfirmPage}/>
                         <Route exact path="/waitingAds"  component={WaitingJobAds}/>
+                        <Route exact path="/waitingEmployerUpdate"  component={WaitingEmployerUpdate}/>
+                        <Route exact path="/confirmUpdate"  component={EmployerUpdateConfirmPage}/>
+
 
 
 

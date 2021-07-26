@@ -31,10 +31,15 @@ export default function Navi() {
               <Icon name='heart' />
               Favori İlanlar
             </Button>}
-            {authItem[0].loggedIn && authItem[0].user.userType===3 &&  <Button color="red" as={Link} to={`/waitingAds`}>
-              <Icon name="check"/>
-              İlan Onayla
+            {authItem[0].loggedIn && authItem[0].user.userType===3 &&  
+            <Button as={Link} to={`/waitingAds`} variant="contained" color="pink">
+            Bekleyen İlanlar
             </Button>}
+            
+            {authItem[0].loggedIn && authItem[0].user.userType===3 &&  <Button variant="contained" color="orange"  as={Link} to={`/waitingEmployerUpdate`}>
+              Bekleyen Güncellemeler
+            </Button>}
+
             {authItem[0].loggedIn?<SingedIn/>:<SingedOut/>}
           </Menu.Menu>
 
