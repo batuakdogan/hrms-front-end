@@ -13,7 +13,7 @@ export default function Navi() {
   const {authItem} = useSelector(state => state.auth)
 
   return (
-    <div>
+    <div className="foo">
 
       <Menu size="large" inverted stackable inverted fixed="top">
         <Container>
@@ -24,7 +24,7 @@ export default function Navi() {
           <Menu.Item name="İş ilanları" as={Link} to={"/jobads"} icon="briefcase"/>
 
           <Menu.Menu position="right" style={{ margin: '0.1em' }}>
-            {authItem[0].loggedIn && authItem[0].user.userType===2 &&  <Button primary as={Link} to={"/jobAdCreate"} icon="add">
+            {authItem[0].loggedIn && authItem[0].user.userType===2 &&  <Button variant="contained" primary as={Link} to={"/jobAdCreate"} icon="add">
               İlan Ekle
             </Button>}
             {authItem[0].loggedIn && authItem[0].user.userType===1 &&  <Button color="red" as={Link} to={`/jobAdFavorites`}>

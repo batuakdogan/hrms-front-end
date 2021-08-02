@@ -14,7 +14,8 @@ import * as Yup from "yup";
 import { useFormik } from "formik";
 import { toast } from "react-toastify";
 
-export default function StaffUpdate() {
+export default function StaffUpdate({email,firstName,lastName}) {
+    
 
     let staffService = new StaffService()
     const { authItem } = useSelector((state) => state.auth);
@@ -24,19 +25,22 @@ export default function StaffUpdate() {
 
     const staffUpdateSchema = Yup.object().shape({
 
-        email: Yup.string().required("Bu alan boş bırakılmaz").min(2,"En az 2 karakter uzunlugunda olmalıdır"),
+        email: Yup.string().notRequired("Bu alan boş bırakılmaz").min(2,"En az 2 karakter uzunlugunda olmalıdır"),
         firstName: Yup.string().required("Bu alan boş bırakılmaz"),
-        lastName:   Yup.string().required("Bu alan boş bırakılmaz"),
+        lastName:   Yup.string().notRequired("Bu alan boş bırakılmaz"),
+
+
     })
 
     let formik;
 
     useEffect(()=>{
         let staffService = new StaffService();
-        staffService.getStaffById(authItem[0].user.id).then((result)=>{
+        staffService.getStaffById().then((result)=>{
             formik.values.email=result.data.data.email
             formik.values.firstName=result.data.data.firstName
             formik.values.lastName=result.data.data.lastName
+
 
 
             setStaff(result.data.data)
@@ -52,14 +56,16 @@ export default function StaffUpdate() {
         },
         validationSchema:staffUpdateSchema,
         onSubmit:(values)=>{
-            formik.values.staffId=1;
-            staffService.update(values).then((result)=>{
+            formik.values.staffId=authItem[0].user.id;
+            staffService.update(email,firstName,lastName).then((result)=>{
                 toast.success(result.data.message)
             }).catch((result) => {
                 toast.error(result.response.data.message)
             })
         }
     })
+
+
 
     return (
         <div>
@@ -92,7 +98,7 @@ export default function StaffUpdate() {
                             <Form.Input
                                 fluid
                                 placeholder="İsim"
-                                type="firstName"
+                                type="text"
                                 name="firstName"
                                 value={formik.values.firstName}
                                 onChange={formik.handleChange}
@@ -129,6 +135,9 @@ export default function StaffUpdate() {
                                 </div>
                             )}
                             </div>
+
+                           
+    
                             
                         </Grid.Column>
                     </Grid>

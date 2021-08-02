@@ -272,7 +272,7 @@ export default function RegisterEmployer() {
         </Segment>
       </Form>
       <Message warning>
-        İşveren kayıtları sistem çalışanları tarafından onaylandıktan sonra aktif hale gelmektedir!
+        İşveren kayıtları email onayı yaptıktan sonra aktif hale gelmektedir!
       </Message>
     </div>
   );

@@ -9,8 +9,8 @@ export default class StaffService{
 
     }
 
-    update(values){
-        return axios.put("http://localhost:8080/api/staff/update",values)
+    update(email,firstName,lastName,staffId){
+        return axios.put(`http://localhost:8080/api/staff/update?email=${email}&firstName=${firstName}&lastName=${lastName}&staffId=1`)
     }
 
     getStaffById(id){

@@ -6,6 +6,7 @@ import { withRouter } from "react-router";
 import { useHistory, useParams } from 'react-router-dom'
 
 import { Form, Input, TextArea, Button, Select } from 'semantic-ui-react'
+import WaitingEmployerUpdate from './WaitingEmployerUpdate';
 
 
 class EmployerUpdateConfirmPage extends Component {
@@ -58,18 +59,7 @@ class EmployerUpdateConfirmPage extends Component {
 
 
                 <Form onSubmit={this.submitHandler}>
-
-                <Form.Field
-                        control={Input}
-                        label='Personel ID'
-                        placeholder="Lütfen Kendi ID'nizi girin.(1),(2)"
-                        onChange={this.changeHandler}
-                        type="text"
-                        name="staffId"
-                        value={staffId}
-                        onChange={this.changeHandler}
-                    />
-
+                
 
 
                         <Form.Field
@@ -83,6 +73,17 @@ class EmployerUpdateConfirmPage extends Component {
                         onChange={this.changeHandler}
                     />
 
+
+<Form.Field
+                        control={Input}
+                        label='Personel ID'
+                        placeholder="Lütfen Kendi ID'nizi girin (1),(2)"
+                        onChange={this.changeHandler}
+                        type="text"
+                        name="staffId"
+                        value={staffId}
+                        onChange={this.changeHandler}
+                    />
                     
 
                     
@@ -90,9 +91,9 @@ class EmployerUpdateConfirmPage extends Component {
                         id='form-button-control-public'
                         control={Button}
                         content='Onayla'
+                        color="green"
 
                     />
-
 
 
 

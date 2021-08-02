@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import WaitingJobAds from '../pages/WaitingJobAds'
 import JobAds from '../pages/JobAds'
 import { withRouter } from "react-router";
 

@@ -97,7 +97,7 @@ export default function JobAds() {
       <JobAdFilter clickEvent={handleFilterClick}/>
 
       <Card fluid>
-        <div style={{marginTop:"1em",marginLeft:"1em"}}>
+        <div style={{marginTop:"1em",marginLeft:"1em"}} >
         <Card.Header as="h2">
           <Icon name="tasks" color="blue"/>
           İş İlanları
@@ -179,7 +179,7 @@ export default function JobAds() {
           }}
           selection
           defaultValue={pageSize}
-          text={"Sayfalama - " + pageSize}
+          text={"Sayfalama : " + pageSize}
           style={{ float: "right" }}
           options={paginationOptions}
       />

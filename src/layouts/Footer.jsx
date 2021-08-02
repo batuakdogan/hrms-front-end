@@ -12,7 +12,7 @@ import {
 
 export default function Footer() {
   return (
-    <div>
+    <div className="foo">
       <Segment
         color="black"
         inverted
@@ -32,7 +32,6 @@ export default function Footer() {
                 <List link inverted>
                   <List.Item as={Link} to={"/about"} ><Icon name="file alternate outline" />Hakkımızda</List.Item>
                   <List.Item as={Link} to={"/policy"}><Icon name="clipboard outline" />Gizlilik Sözleşmesi</List.Item>
-              
 
                   <List.Item as="a"><Icon name="phone square" />İletişim</List.Item>
                 </List>

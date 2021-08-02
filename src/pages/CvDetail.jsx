@@ -147,7 +147,7 @@ export default function CvDetail() {
                               <Icon name="github" /> Github
                             </Button>
                           </a>
-                          {myProfile && <Popup trigger={<button className="ui button" class="ui purple button"> Güncelle  &nbsp;   <Icon name="edit outline"/> </button>} modal> 
+                          {myProfile && <Popup trigger={<button className="ui button" class="ui purple button"> Güncelle  &nbsp;   <Icon name="pencil alternate"/> </button>} modal> 
                             <UptadeGithub cvId={cv.id} updateCvValues={updateCvValues} />
                           </Popup>}
                           {myProfile && <Button color="red" circular icon="x" onClick={() => handleGithubDelete(cv.id)} disabled={!cv.github}>
@@ -171,7 +171,7 @@ export default function CvDetail() {
                               <Icon name="linkedin" /> LinkedIn
                             </Button>
                           </a>
-                          {myProfile && <Popup trigger={<button className="ui button" class="ui purple button" > Güncelle  &nbsp;   <Icon name="edit outline"/> </button>} modal>
+                          {myProfile && <Popup trigger={<button className="ui button" class="ui purple button" > Güncelle  &nbsp;   <Icon name="pencil alternate"/> </button>} modal>
                             <UpdateLinkedin cvId={cv.id} updateCvValues={updateCvValues} />
                           </Popup>}
                           {myProfile && <Button color="red" icon="x" circular disabled={!cv.linkedin} onClick={() => handleLinkedinDelete(cv.id)}>

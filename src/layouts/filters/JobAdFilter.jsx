@@ -131,7 +131,7 @@ export default function JobAdFilter({ clickEvent }) {
             <Button
                 type="button"
                 fluid
-                color="green"
+                color="yellow"
                 onClick={() => clickEvent({ cityId: cityIndex, jobPositionId: jobPositionIndex, workPlaceId: workPlaceIndex, workTimeId: workTimeIndex })}
             >
                 Filtrele
