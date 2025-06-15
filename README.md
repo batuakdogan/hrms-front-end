@@ -1,19 +1,128 @@
-## 🚀 Built With
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/2048px-Unofficial_JavaScript_logo_2.svg.png" width=50/>  &ensp;  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/React.svg/1200px-React.svg.png" width=56 height="50"/>  &ensp;  <img src="https://everyday.codes/wp-content/uploads/2020/01/0-U2DmhXYumRyXH6X1.png" width=50/> <img src="data:image/png;base64,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"/><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/1200px-HTML5_logo_and_wordmark.svg.png" width=50/><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/1200px-CSS3_logo_and_wordmark.svg.png" width=40 height=50/>
-<br></br>
+# HRMS - Frontend (React)
 
-## 🖼️ Some Images of the Project
+This is the front-end application for the Human Resource Management System (HRMS), built with React. It provides the user interface for candidates, employers, and system staff to interact with the [HRMS Backend API](https://github.com/your-username/hrms-back-end-main).
 
+## Built With
 
+This project is a modern single-page application built with a robust set of tools and libraries:
+
+*   **Core:**
+    *   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/128px-React-icon.svg.png" width=20/> [React](https://reactjs.org/)
+    *   <img src="https://raw.githubusercontent.com/reduxjs/redux/master/logo/logo.svg" width=20/> [Redux](https://redux.js.org/) for state management.
+    
+*   **UI & Styling:**
+    *   <img src="https://cdn.worldvectorlogo.com/logos/semantic-ui.svg" width=20/> [Semantic UI React](https://react.semantic-ui.com/) for the component library.
+    *   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/1200px-CSS3_logo_and_wordmark.svg.png" width=15 height=20/> CSS for custom styling.
+*   **Forms & Data:**
+    *   <img src="https://axios-http.com/assets/logo.svg" width=80/> [Axios](https://axios-http.com/) for making API requests.
+    *   **Formik** & **Yup** for efficient and validatable form building.
+*   **Notifications:**
+    *   **React Toastify** for user-friendly feedback and notifications.
+
+##  Features
+
+*   **Role-Specific Dashboards:** The UI adapts based on the logged-in user type (Candidate, Employer, or Staff), showing relevant navigation and actions.
+*   **User Authentication:** Secure registration and login flows for all user types.
+*   **Job Listings with Filtering:**
+    *   View all active job advertisements.
+    *   Filter jobs by City, Job Position, Work Place, and Work Time.
+    *   Pagination for browsing through large sets of job ads.
+*   **Comprehensive CV Management:** Candidates can view and dynamically update their CVs through intuitive pop-up modals for each section:
+    *   Profile Picture Upload (integrated with Cloudinary via the backend).
+    *   Personal Biography.
+    *   GitHub and LinkedIn profiles.
+    *   Education History.
+    *   Work Experience.
+    *   Languages and proficiency levels.
+    *   Technical skills and technologies.
+*   **Employer-Specific Features:**
+    *   Create new job advertisements.
+    *   Submit company profile information for updates, which enters a staff approval queue.
+*   **Staff-Specific Features:**
+    *   View and approve/confirm pending job advertisements.
+    *   View and approve pending employer profile updates.
+*   **Job Ad Favorites:** Candidates can add/remove job ads from a personal favorites list.
+
+## Project Screenshots
 
 ![Ekran görüntüsü 2021-07-14 132249](https://user-images.githubusercontent.com/77547523/125606901-fc388143-aa4c-4fa7-a42f-0a6529837b5c.png)
 ![Ekran görüntüsü 2021-07-14 132316](https://user-images.githubusercontent.com/77547523/125606906-bd3d9d6c-b919-415c-9808-0ef4fb85750f.png)
 ![Ekran görüntüsü 2021-07-14 132347](https://user-images.githubusercontent.com/77547523/125606909-e9458d70-a4e7-42eb-aa55-1b38efbad3fe.png)
 ![Ekran görüntüsü 2021-07-14 132403](https://user-images.githubusercontent.com/77547523/125606911-a1ecd4e5-f84f-447d-872a-1bbd5c6d974b.png)
 ![Ekran görüntüsü 2021-07-14 132424](https://user-images.githubusercontent.com/77547523/125606915-02841229-0f8c-41c9-ab87-7db8849b1378.png)
-![Ekran görüntüsü 2021-07-14 133638](https://user-images.githubusercontent.com/77547523/125608546-d4883d4a-c874-4727-9efb-c8d5ac4ec517.png)
 
+## ⚙️ Setup and Running the Project
 
+### Prerequisites
+*   [Node.js](https://nodejs.org/) (which includes npm)
+*   The [HRMS Backend API](https://github.com/your-username/hrms-back-end-main) must be running, as this front-end application depends on it for all data.
 
+### Installation & Configuration
 
+1.  **Clone the repository:**
+    ```sh
+    git clone https://github.com/your-username/hrms-front-end-main.git
+    cd hrms-front-end-main
+    ```
+
+2.  **Install NPM packages:**
+    ```sh
+    npm install
+    ```
+
+3.  **Configure API URL (Recommended):**
+    By default, all API requests in `src/services/` are hardcoded to `http://localhost:8080`. For better configuration management, it is recommended to use an environment file.
+
+    Create a file named `.env` in the root of the project (`hrms-front-end-main/`) and add the following line:
+    ```
+    REACT_APP_API_URL=http://localhost:8080
+    ```
+    Then, update the service files to use this variable. For example, in `src/services/CityService.jsx`:
+    ```javascript
+    // Before
+    getCitys(){
+        return axios.get("http://localhost:8080/city/getAll")
+    }
+
+    // After
+    getCitys(){
+        return axios.get(`${process.env.REACT_APP_API_URL}/city/getAll`)
+    }
+    ```
+
+### Available Scripts
+
+In the project directory, you can run:
+
+#### `npm start`
+
+Runs the app in development mode.
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser. The page will reload if you make edits.
+
+#### `npm test`
+
+Launches the test runner in interactive watch mode.
+
+#### `npm run build`
+
+Builds the app for production to the `build` folder. It correctly bundles React in production mode and optimizes the build for the best performance.
+
+## 📂 Project Structure
+```
+hrms-front-end-main/
+├── public/
+│   ├── index.html         # The main HTML template
+│   └── ...
+├── src/
+│   ├── layouts/           # Main layout components (Navi, Footer, Dashboard, etc.)
+│   ├── pages/             # Page components routed in Dashboard.jsx
+│   │   ├── popups/        # Modal components for updating CV sections
+│   │   └── ...
+│   ├── services/          # Axios services for making API calls
+│   ├── store/             # Redux store configuration (actions, reducers)
+│   ├── App.js             # Root application component
+│   └── index.js           # Entry point of the application
+├── package.json
+└── README.md
+```
